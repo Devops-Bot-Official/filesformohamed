@@ -1,15 +1,15 @@
 resources:
   service_updates:
-    - service_update_name: my-elasticache-service-update
-      replication_group_ids:
-        - my-redis-replication-group-1
-        - my-redis-replication-group-2
-      cache_cluster_ids:
-        - my-cache-cluster-1
-        - my-cache-cluster-2
-      region: us-east-1
-      tags:
-        - Key: Environment
-          Value: Production
-        - Key: MaintenanceWindow
-          Value: Scheduled
+    - service_update_name: my-elasticache-service-update  # The name of the service update
+      replication_group_ids:                              # List of replication group IDs affected by the update
+        - my-redis-replication-group-1                   # Example replication group ID
+        - my-redis-replication-group-2                   # Example replication group ID
+      cache_cluster_ids:                                 # List of cache cluster IDs affected by the update
+        - my-cache-cluster-1                             # Example cache cluster ID
+        - my-cache-cluster-2                             # Example cache cluster ID
+      region: us-east-1                                  # The AWS region where the service update is applied (e.g., "us-east-1")
+      tags:                                              # Tags associated with the service update
+        - Key: Environment                               # Key for the tag (e.g., "Environment")
+          Value: Production                              # Value for the tag (e.g., "Production")
+        - Key: MaintenanceWindow                         # Key for the tag (e.g., "MaintenanceWindow")
+          Value: Scheduled                               # Value for the tag (e.g., "Scheduled")

@@ -1,12 +1,12 @@
 resources:
   transit_gateway_route_table_associations:
-    - name: WebTGWAssociation
-      region: us-west-1
-      route_table_id: tgw-rtb-02fcb4732f380e72e 
-      attachment_id: tgw-attach-0e2fa4d1136c368e1
-      tags:
-        - Key: Name
-          Value: WebTGWAssociation
-        - Key: Environment
-          Value: Production
+    - name: WebTGWAssociation                // A descriptive name for the Transit Gateway Route Table Association
+      region: us-west-1                      // The AWS region where the association is created (e.g., "us-west-1")
+      route_table_id: tgw-rtb-02fcb4732f380e72e // The ID of the Transit Gateway Route Table
+      attachment_id: tgw-attach-0e2fa4d1136c368e1 // The ID of the Transit Gateway Attachment
+      tags:                                  // Tags associated with the association
+        - Key: Name                          // Key for the tag (e.g., "Name")
+          Value: WebTGWAssociation           // Value for the tag (e.g., "WebTGWAssociation")
+        - Key: Environment                   // Key for the tag (e.g., "Environment")
+          Value: Production                  // Value for the tag (e.g., "Production")
 

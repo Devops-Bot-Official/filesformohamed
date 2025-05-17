@@ -1,11 +1,11 @@
 resources:
   db_snapshots:
-    - name: snapshot
-      snapshot_identifier: my-db-snapshot-2024
-      db_instance_identifier: my-db-instance
-      region: us-west-1
-      tags:
-        - Key: Name
-          Value: "MyDatabaseSnapshot"
-        - Key: Environment
-          Value: "Production"
+    - name: snapshot                          # A descriptive name for the snapshot configuration
+      snapshot_identifier: my-db-snapshot-2024 # The unique identifier for the database snapshot
+      db_instance_identifier: my-db-instance  # The identifier of the database instance to snapshot
+      region: us-west-1                       # The AWS region where the snapshot is created (e.g., "us-west-1")
+      tags:                                   # Tags associated with the database snapshot
+        - Key: Name                           # Key for the tag (e.g., "Name")
+          Value: "MyDatabaseSnapshot"         # Value for the tag (e.g., "MyDatabaseSnapshot")
+        - Key: Environment                    # Key for the tag (e.g., "Environment")
+          Value: "Production"                 # Value for the tag (e.g., "Production")

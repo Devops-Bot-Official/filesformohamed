@@ -1,16 +1,16 @@
 resources:
   memcached_caches:
-    - name: memcached_caches
-      cluster_id: my-memcached-cluster
-      cache_node_type: cache.t3.micro
-      num_cache_nodes: 2
-      security_group_ids:
-        - sg-0ca663c8d8e6a2bb3
-      subnet_group_name: my-elasticache-subnet-group2
-      parameter_group_name: default.memcached1.6
-      region: us-west-1
-      tags:
-        - Key: "Environment"
-          Value: "Production"
-        - Key: "Name"
-          Value: "MyMemcachedCluster"
+    - name: memcached_caches                 # A descriptive name for the Memcached cache configuration
+      cluster_id: my-memcached-cluster       # The unique identifier for the Memcached cluster
+      cache_node_type: cache.t3.micro        # The instance type for the cache nodes (e.g., "cache.t3.micro")
+      num_cache_nodes: 2                     # The number of cache nodes in the cluster
+      security_group_ids:                    # List of security group IDs associated with the cluster
+        - sg-0ca663c8d8e6a2bb3               # Example security group ID
+      subnet_group_name: my-elasticache-subnet-group2 # The name of the subnet group for the cluster
+      parameter_group_name: default.memcached1.6      # The name of the parameter group for the cluster
+      region: us-west-1                      # The AWS region where the cluster is created (e.g., "us-west-1")
+      tags:                                  # Tags associated with the Memcached cluster
+        - Key: "Environment"                 # Key for the tag (e.g., "Environment")
+          Value: "Production"                # Value for the tag (e.g., "Production")
+        - Key: "Name"                        # Key for the tag (e.g., "Name")
+          Value: "MyMemcachedCluster"        # Value for the tag (e.g., "MyMemcachedCluster")

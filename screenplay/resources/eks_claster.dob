@@ -1,17 +1,20 @@
 resources:
   eks_clusters:
-    - name: "MyEKSCluster"
-      region: us-east-1
-      version: "1.31"
-      role_arn: arn:aws:iam::533267079506:role/eksClusterRole
-      resources_vpc_config:
-        subnetIds:
-          - subnet-08b3efc0fc5d067cf
-          - subnet-02389c02fcacc9189
-        securityGroupIds:
-          - sg-04ac7dc75e1f54b3a
-        endpointPublicAccess: True
-        endpointPrivateAccess: False
-      tags:
-        - Key: "Name"
-          Value: "MyEKSCluster"
+    - name: "MyEKSCluster"                  // A descriptive name for the EKS cluster
+      region: us-east-1                     // The AWS region where the EKS cluster is created (e.g., "us-east-1")
+      version: "1.31"                       // The Kubernetes version for the EKS cluster (e.g., "1.31")
+      role_arn: arn:aws:iam::123456789012:role/eksClusterRole
+        // The ARN of the IAM role for the EKS cluster
+      resources_vpc_config:                 // VPC configuration for the EKS cluster
+        subnetIds:                          // List of subnet IDs for the cluster
+          - subnet-12345                    // Example subnet ID
+          - subnet-67890                    // Another example subnet ID
+        securityGroupIds:                   // List of security group IDs for the cluster
+          - sg-12345                        // Example security group ID
+        endpointPublicAccess: True          // Whether the cluster endpoint is publicly accessible
+        endpointPrivateAccess: False        // Whether the cluster endpoint is privately accessible
+      tags:                                 // Tags associated with the EKS cluster
+        - Key: "Name"                       // Key for the tag (e.g., "Name")
+          Value: "MyEKSCluster"             // Value for the tag (e.g., "MyEKSCluster")
+        - Key: "Environment"                // Key for the tag (e.g., "Environment")
+          Value: "Production"               // Value for the tag (e.g., "Production")

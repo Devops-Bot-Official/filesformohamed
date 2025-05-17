@@ -1,25 +1,30 @@
 resources:
   iam_identity_providers:
-    - name: MySAMLProvider
-      type: SAML
-      region: us-east-1
-      metadata_document: |
+    - name: MySAMLProvider                  # The name of the SAML identity provider
+      type: SAML                            # The type of identity provider (e.g., SAML)
+      region: us-east-1                     # The AWS region where the identity provider is configured
+      metadata_document: |                  # The metadata document for the SAML provider
         <EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
           entityID="https://idp.example.com/saml">
           <!-- full metadata XML here -->
         </EntityDescriptor>
-      tags:
-        - Key: Environment
-          Value: Production
+      tags:                                 # Tags associated with the identity provider
+        - Key: Environment                  # Key for the tag (e.g., "Environment")
+          Value: Production                 # Value for the tag (e.g., "Production")
+        - Key: Team                         # Key for the tag (e.g., "Team")
+          Value: Security                   # Value for the tag (e.g., "Security")
 
-    - name: MyOIDCProvider
-      type: OIDC
-      region: us-west-2
+    - name: MyOIDCProvider                  # The name of the OIDC identity provider
+      type: OIDC                            # The type of identity provider (e.g., OIDC)
+      region: us-west-2                     # The AWS region where the identity provider is configured
       url: https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E
-      client_id_list:
-        - sts.amazonaws.com
-      thumbprint_list:
+        # The URL of the OIDC identity provider
+      client_id_list:                       # List of client IDs allowed to use this provider
+        - sts.amazonaws.com                 # Example client ID
+      thumbprint_list:                      # List of thumbprints for the OIDC provider's certificate
         - 9e99a48a9960b14926bb7f3b02e22da0ecd2e1a0
-      tags:
-        - Key: Team
-          Value: DevOps
+      tags:                                 # Tags associated with the identity provider
+        - Key: Team                         # Key for the tag (e.g., "Team")
+          Value: DevOps                     # Value for the tag (e.g., "DevOps")
+        - Key: Environment                  # Key for the tag (e.g., "Environment")
+          Value: Development                # Value for the tag (e.g., "Development")

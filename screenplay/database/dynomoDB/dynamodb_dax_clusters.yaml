@@ -1,16 +1,18 @@
 resources:
   dynamodb_dax_clusters:
-    - name: dynamodb_dax_clusters
-      cluster_name: my-dax-cluster
-      region: us-west-1
-      node_type: dax.r5.large
-      replication_factor: 3
-      iam_role_arn: arn:aws:iam::533267079506:role/aws-service-role/dax.amazonaws.com/AWSServiceRoleForDAX
-      subnet_group: my-dax-subnet-group
-      security_group_ids:
-        - sg-04529c1e7a5c67db7
-      tags:
-        - Key: Environment
-          Value: Production
-        - Key: Project
-          Value: RealTimeCache
+    - name: dynamodb_dax_clusters           # A descriptive name for the DAX cluster configuration
+      cluster_name: my-dax-cluster          # The name of the DAX cluster
+      region: us-west-1                     # The AWS region where the DAX cluster is created (e.g., "us-west-1")
+      node_type: dax.r5.large               # The instance type for the DAX nodes (e.g., "dax.r5.large")
+      replication_factor: 3                 # The number of nodes in the DAX cluster
+      iam_role_arn: arn:aws:iam::123456789012:role/aws-service-role/dax.amazonaws.com/AWSServiceRoleForDAX
+        # The ARN of the IAM role associated with the DAX cluster
+      subnet_group: my-dax-subnet-group     # The name of the subnet group for the DAX cluster
+      security_group_ids:                   # List of security group IDs associated with the DAX cluster
+        - sg-12345                          # Example security group ID
+        - sg-67890                          # Another example security group ID
+      tags:                                 # Tags associated with the DAX cluster
+        - Key: Environment                  # Key for the tag (e.g., "Environment")
+          Value: Production                 # Value for the tag (e.g., "Production")
+        - Key: Project                      # Key for the tag (e.g., "Project")
+          Value: RealTimeCache              # Value for the tag (e.g., "RealTimeCache")

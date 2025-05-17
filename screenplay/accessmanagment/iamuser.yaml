@@ -1,26 +1,27 @@
 resources:
   ###########################################################################
-  # IAM USER 
+  # IAM USER
   ###########################################################################
   iam_users:
-    - name: "newdnevops"
-      path: "/dev/"
-      region: "us-east-1"
-      groups:
-        - "Devops-bot"
-      tags:
-        - Key: "Environment"
-          Value: "Development"
-        - Key: "CreatedBy"
-          Value: "CICD"
+    - name: "ExampleUser1"         # The name of the IAM user (e.g., "ExampleUser1")
+      path: "/example/"            # The path for the user (e.g., "/example/")
+      region: "us-east-1"          # The AWS region where the user is created (e.g., "us-east-1")
+      groups:                      # The IAM groups the user belongs to
+        - "ExampleGroup1"          # Example group (e.g., "ExampleGroup1")
+        - "ExampleGroup2"          # Example group (e.g., "ExampleGroup2")
+      tags:                        # Tags associated with the IAM user
+        - Key: "Environment"       # Key for the tag (e.g., "Environment")
+          Value: "Development"     # Value for the tag (e.g., "Development")
+        - Key: "CreatedBy"         # Key for the tag (e.g., "CreatedBy")
+          Value: "Automation"      # Value for the tag (e.g., "Automation")
 
-    - name: "nextuser"
-      path: "/dev/"
-      region: "us-east-1"
-      groups:
-        - "Devops-bot"
-      tags:
-        - Key: "Environment"
-          Value: "Development"
-        - Key: "CreatedBy"
-          Value: "CICD"
+    - name: "ExampleUser2"         # The name of another IAM user (e.g., "ExampleUser2")
+      path: "/example/"            # The path for the user (e.g., "/example/")
+      region: "us-west-2"          # The AWS region where the user is created (e.g., "us-west-2")
+      groups:                      # The IAM groups the user belongs to
+        - "ExampleGroup1"          # Example group (e.g., "ExampleGroup1")
+      tags:                        # Tags associated with the IAM user
+        - Key: "Environment"       # Key for the tag (e.g., "Environment")
+          Value: "Production"      # Value for the tag (e.g., "Production")
+        - Key: "CreatedBy"         # Key for the tag (e.g., "CreatedBy")
+          Value: "Admin"           # Value for the tag (e.g., "Admin")

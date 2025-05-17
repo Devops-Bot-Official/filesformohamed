@@ -1,18 +1,18 @@
 resources:
   redis_caches:
-    - replication_group_id: my-redis-single-node2
-      description: "Single Redis instance without failover"
-      cache_node_type: cache.m5.large
-      num_node_groups: 1
-      automatic_failover: false
-      region: us-west-1
-      security_group_ids:
-        - sg-0ca663c8d8e6a2bb3
-      subnet_group_name: my-elasticache-subnet-group2
-      parameter_group_name: my-redis-parameter-group
-      tags:
-        - Key: Name
-          Value: "MyRedisSingleNode"
-        - Key: Environment
-          Value: "Development"
+    - replication_group_id: my-redis-single-node2  # The unique identifier for the Redis replication group
+      description: "Single Redis instance without failover"  # A description of the Redis cache configuration
+      cache_node_type: cache.m5.large             # The instance type for the cache nodes (e.g., "cache.m5.large")
+      num_node_groups: 1                          # The number of node groups (shards) in the cluster
+      automatic_failover: false                   # Whether automatic failover is enabled (true or false)
+      region: us-west-1                           # The AWS region where the Redis cache is created (e.g., "us-west-1")
+      security_group_ids:                         # List of security group IDs associated with the cluster
+        - sg-0ca663c8d8e6a2bb3                    # Example security group ID
+      subnet_group_name: my-elasticache-subnet-group2  # The name of the subnet group for the cluster
+      parameter_group_name: my-redis-parameter-group  # The name of the parameter group for the cluster
+      tags:                                       # Tags associated with the Redis cache
+        - Key: Name                               # Key for the tag (e.g., "Name")
+          Value: "MyRedisSingleNode"              # Value for the tag (e.g., "MyRedisSingleNode")
+        - Key: Environment                        # Key for the tag (e.g., "Environment")
+          Value: "Development"                    # Value for the tag (e.g., "Development")
 

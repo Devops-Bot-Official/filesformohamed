@@ -1,13 +1,13 @@
 resources:
   db_option_groups:
-    - name: my-db-option-group
-      engine_name: mysql
-      major_engine_version: "8.0"
-      description: "Custom Option Group for MySQL features"
-      region: us-west-1
-      tags:
-        - Key: Name
-          Value: "MyDBOptionGroup"
-        - Key: Environment
-          Value: "Development"
+    - name: my-db-option-group               # The name of the DB option group
+      engine_name: mysql                     # The database engine name (e.g., "mysql", "postgres", "oracle-ee")
+      major_engine_version: "8.0"            # The major version of the database engine (e.g., "8.0" for MySQL)
+      description: "Custom Option Group for MySQL features"  # A description of the option group
+      region: us-west-1                      # The AWS region where the option group is created (e.g., "us-west-1")
+      tags:                                  # Tags associated with the DB option group
+        - Key: Name                          # Key for the tag (e.g., "Name")
+          Value: "MyDBOptionGroup"           # Value for the tag (e.g., "MyDBOptionGroup")
+        - Key: Environment                   # Key for the tag (e.g., "Environment")
+          Value: "Development"               # Value for the tag (e.g., "Development")
 

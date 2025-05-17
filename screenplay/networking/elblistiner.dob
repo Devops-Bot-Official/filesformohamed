@@ -1,16 +1,21 @@
 resources:
   listeners:
-    - name: my-https-listener
-      region: us-east-1
+    - name: my-https-listener                // A descriptive name for the listener
+      region: us-east-1                      // The AWS region where the listener is created (e.g., "us-east-1")
       load_balancer_arn: arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/my-alb/50dc6c495c0c9188
-      protocol: HTTPS
-      port: 443
-      ssl_policy: ELBSecurityPolicy-2016-08
-      certificates:
+        // The ARN of the load balancer associated with the listener
+      protocol: HTTPS                        // The protocol for the listener (e.g., "HTTP", "HTTPS")
+      port: 443                              // The port on which the listener is listening (e.g., 80, 443)
+      ssl_policy: ELBSecurityPolicy-2016-08  // The SSL policy for HTTPS listeners
+      certificates:                          // List of certificates for the listener
         - CertificateArn: arn:aws:acm:us-east-1:123456789012:certificate/1234abcd-12ab-34cd-56ef-1234567890ab
-      default_actions:
-        - Type: forward
+          // The ARN of the SSL certificate
+      default_actions:                       // Default actions for the listener
+        - Type: forward                      // The type of action (e.g., "forward", "redirect", "authenticate")
           TargetGroupArn: arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/my-tg/6d0ecf831eec9f09
-      tags:
-        - Key: Name
-          Value: MyHTTPSListener
+            // The ARN of the target group to forward requests to
+      tags:                                  // Tags associated with the listener
+        - Key: Name                          // Key for the tag (e.g., "Name")
+          Value: MyHTTPSListener             // Value for the tag (e.g., "MyHTTPSListener")
+        - Key: Environment                   // Key for the tag (e.g., "Environment")
+          Value: Production                  // Value for the tag (e.g., "Production")

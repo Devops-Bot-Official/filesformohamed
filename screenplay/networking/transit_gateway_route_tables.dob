@@ -1,11 +1,11 @@
 resources:
   # Transit Gateway Route Tables
   transit_gateway_route_tables:
-    - name: "MyTGWRouteTable"
-      region: "us-west-1"
-      transit_gateway_id: "tgw-0145cefc510eeefc5"  # ID of the existing Transit Gateway
-      tags:
-        - Key: "Environment"
-          Value: "Production"
-        - Key: "Name"
-          Value: "MyTGWRouteTable"
+    - name: "MyTGWRouteTable"               // A descriptive name for the Transit Gateway Route Table
+      region: "us-west-1"                   // The AWS region where the route table is created (e.g., "us-west-1")
+      transit_gateway_id: "tgw-0145cefc510eeefc5"  // The ID of the existing Transit Gateway
+      tags:                                 // Tags associated with the route table
+        - Key: "Environment"                // Key for the tag (e.g., "Environment")
+          Value: "Production"               // Value for the tag (e.g., "Production")
+        - Key: "Name"                       // Key for the tag (e.g., "Name")
+          Value: "MyTGWRouteTable"          // Value for the tag (e.g., "MyTGWRouteTable")

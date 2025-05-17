@@ -1,15 +1,16 @@
 resources:
   dynamodb_dax_parameter_groups:
-    - name: custom-dax-group
-      region: us-west-1
+    - name: custom-dax-group                # The name of the DAX parameter group
+      region: us-west-1                     # The AWS region where the parameter group is created (e.g., "us-west-1")
       description: Custom parameter group for DAX performance tuning
-      parameters:
-        - ParameterName: query-ttl-millis
-          ParameterValue: "60000"
-        - ParameterName: record-ttl-millis
-          ParameterValue: "60000"
-      tags:
-        - Key: Project
-          Value: RealtimeCache
-        - Key: Environment
-          Value: Production
+        # A description of the parameter group
+      parameters:                           # List of parameters for the DAX parameter group
+        - ParameterName: query-ttl-millis   # Name of the parameter (e.g., "query-ttl-millis")
+          ParameterValue: "60000"           # Value of the parameter (e.g., "60000" milliseconds)
+        - ParameterName: record-ttl-millis  # Name of the parameter (e.g., "record-ttl-millis")
+          ParameterValue: "60000"           # Value of the parameter (e.g., "60000" milliseconds)
+      tags:                                 # Tags associated with the DAX parameter group
+        - Key: Project                      # Key for the tag (e.g., "Project")
+          Value: RealtimeCache              # Value for the tag (e.g., "RealtimeCache")
+        - Key: Environment                  # Key for the tag (e.g., "Environment")
+          Value: Production                 # Value for the tag (e.g., "Production")

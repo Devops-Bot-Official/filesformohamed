@@ -1,19 +1,19 @@
 resources:
   # Transit Gateway creation
   transit_gateways:
-    - name: "my-transit-gateway2"
-      region: "us-west-1"
-      description: "Transit Gateway for my network"
-      options:
-        amazon_side_asn: 64512  # Amazon Side ASN
-        auto_accept_shared_attachments: "disable"
-        default_route_table_association: "enable"
-        default_route_table_propagation: "enable"
-        MulticastSupport: "enable"
-        dns_support: "enable"
-        vpn_ecmp_support: "enable"
-      tags:
-        - Key: "Environment"
-          Value: "Production"
-        - Key: "Name"
-          Value: "Mtesttransit2"
+    - name: "my-transit-gateway"             // A descriptive name for the Transit Gateway
+      region: "us-west-1"                    // The AWS region where the Transit Gateway is created (e.g., "us-west-1")
+      description: "Transit Gateway for my network" // A description of the Transit Gateway
+      options:                               // Configuration options for the Transit Gateway
+        amazon_side_asn: 64512               // Amazon Side ASN (Autonomous System Number)
+        auto_accept_shared_attachments: "disable" // Enable or disable auto-accept shared attachments (e.g., "enable", "disable")
+        default_route_table_association: "enable" // Enable or disable default route table association (e.g., "enable", "disable")
+        default_route_table_propagation: "enable" // Enable or disable default route table propagation (e.g., "enable", "disable")
+        MulticastSupport: "enable"           // Enable or disable multicast support (e.g., "enable", "disable")
+        dns_support: "enable"                // Enable or disable DNS support (e.g., "enable", "disable")
+        vpn_ecmp_support: "enable"           // Enable or disable VPN Equal Cost Multipath (ECMP) support (e.g., "enable", "disable")
+      tags:                                  // Tags associated with the Transit Gateway
+        - Key: "Environment"                 // Key for the tag (e.g., "Environment")
+          Value: "Production"                // Value for the tag (e.g., "Production")
+        - Key: "Name"                        // Key for the tag (e.g., "Name")
+          Value: "MyTransitGateway"          // Value for the tag (e.g., "MyTransitGateway")

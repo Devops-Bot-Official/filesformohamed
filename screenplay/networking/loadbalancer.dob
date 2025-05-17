@@ -1,18 +1,18 @@
 resources:
   # Load Balancer creation
   load_balancers:
-    - name: "Mapplication"
-      region: us-west-1
-      subnets:
-        - subnet-00b71dba55855b80a
-        - subnet-072da49a94b22ad5c
-      security_groups:
-        - sg-04529c1e7a5c67db7
-      scheme: internet-facing
-      type: network
-      ip_address_type: ipv4
-      tags:
-        - Key: Environment
-          Value: Production
-        - Key: Name
-          Value: MyLoadBalancer1
+    - name: "Mapplication"                  // A descriptive name for the load balancer
+      region: us-west-1                     // The AWS region where the load balancer is created (e.g., "us-west-1")
+      subnets:                              // List of subnet IDs associated with the load balancer
+        - subnet-00b71dba55855b80a          // Example subnet ID
+        - subnet-072da49a94b22ad5c          // Example subnet ID
+      security_groups:                      // List of security group IDs associated with the load balancer
+        - sg-04529c1e7a5c67db7              // Example security group ID
+      scheme: internet-facing               // The scheme of the load balancer (e.g., "internet-facing", "internal")
+      type: network                         // The type of load balancer (e.g., "application", "network", "gateway")
+      ip_address_type: ipv4                 // The IP address type (e.g., "ipv4", "dualstack")
+      tags:                                 // Tags associated with the load balancer
+        - Key: Environment                  // Key for the tag (e.g., "Environment")
+          Value: Production                 // Value for the tag (e.g., "Production")
+        - Key: Name                         // Key for the tag (e.g., "Name")
+          Value: MyLoadBalancer1            // Value for the tag (e.g., "MyLoadBalancer1")

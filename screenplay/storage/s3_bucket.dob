@@ -1,23 +1,23 @@
 resources:
   # S3 Bucket creation
   s3_buckets:
-    - name: s3 bucket
-      bucket_name: "newtestbucketfordevops-got01"
-      region: "us-west-1"
-      public_access_block: true
-      versioning: true
-      lifecycle_rules:
-        - id: "DeleteOldObjects"
-          prefix: "logs/"
-          status: "enabled"  # Ensure this field is present and has a valid value
-          expiration_in_days: 30
-      logging:
-        TargetBucket: "my-s3-bucket-3243"
-        TargetPrefix: "bucket-logs/"
-      encryption:
-        SSEAlgorithm: AES256
-      tags:
-        - Key: Environment
-          Value: Production
-        - Key: Name
-          Value: testbucketfordun0236444
+    - name: s3 bucket                       // A descriptive name for the S3 bucket resource
+      bucket_name: "example-bucket-12345"   // The name of the S3 bucket (must be globally unique)
+      region: "us-west-1"                   // The AWS region where the bucket is created (e.g., "us-west-1")
+      public_access_block: true             // Whether to block public access to the bucket (true/false)
+      versioning: true                      // Whether to enable versioning for the bucket (true/false)
+      lifecycle_rules:                      // Lifecycle rules for managing objects in the bucket
+        - id: "DeleteOldObjects"            // A unique identifier for the lifecycle rule
+          prefix: "logs/"                   // The prefix for objects the rule applies to (e.g., "logs/")
+          status: "enabled"                 // The status of the rule (e.g., "enabled", "disabled")
+          expiration_in_days: 30            // The number of days after which objects are deleted
+      logging:                              // Logging configuration for the bucket
+        TargetBucket: "log-bucket-12345"    // The name of the bucket where logs are stored
+        TargetPrefix: "bucket-logs/"        // The prefix for log object keys
+      encryption:                           // Encryption configuration for the bucket
+        SSEAlgorithm: AES256                // The server-side encryption algorithm (e.g., "AES256", "aws:kms")
+      tags:                                 // Tags associated with the S3 bucket
+        - Key: Environment                  // Key for the tag (e.g., "Environment")
+          Value: Production                 // Value for the tag (e.g., "Production")
+        - Key: Name                         // Key for the tag (e.g., "Name")
+          Value: example-bucket-12345       // Value for the tag (e.g., "example-bucket-12345")
