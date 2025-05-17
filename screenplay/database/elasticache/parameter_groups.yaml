@@ -1,11 +1,12 @@
 resources:
   parameter_groups:
-    - name: my-redis-parameter-group
-      family: redis7
+    - name: my-redis-parameter-group         # The name of the parameter group
+      family: redis7                         # The family of the parameter group (e.g., "redis7" or "redis6")
       description: "Custom parameter group for Redis 7 cluster"
-      region: us-west-1
-      tags:
-        - Key: "Name"
-          Value: "MyRedisParameterGroup"
-        - Key: "Environment"
-          Value: "Development"
+        # A description of the parameter group
+      region: us-west-1                      # The AWS region where the parameter group is created (e.g., "us-west-1")
+      tags:                                  # Tags associated with the parameter group
+        - Key: "Name"                        # Key for the tag (e.g., "Name")
+          Value: "MyRedisParameterGroup"     # Value for the tag (e.g., "MyRedisParameterGroup")
+        - Key: "Environment"                 # Key for the tag (e.g., "Environment")
+          Value: "Development"               # Value for the tag (e.g., "Development")

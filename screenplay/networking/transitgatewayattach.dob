@@ -1,16 +1,16 @@
 resources:
   # Transit Gateway Attachments
   transit_gateway_attachments:
-    - name: "MyTGWAttachment"
-      region: "us-west-1"
-      transit_gateway_id: "tgw-0145cefc510eeefc5"  # ID of the existing Transit Gateway
-      resource_id: "vpc-0c4737c217f1e8ef2"          # ID of the resource (e.g., VPC) to attach
-      resource_type: "vpc"                          # Type of resource (default: 'vpc')
-      subnet_ids:                                   # Subnets for VPC attachments (optional)
-        - "subnet-078fc553644395f00"
-        - "subnet-051c05ceb5f5b183b"
-      tags:
-        - Key: "Environment"
-          Value: "Production"
-        - Key: "Name"
-          Value: "MyTGWAttachment"
+    - name: "MyTGWAttachment"                // A descriptive name for the Transit Gateway Attachment
+      region: "us-west-1"                    // The AWS region where the attachment is created (e.g., "us-west-1")
+      transit_gateway_id: "tgw-12345"        // The ID of the existing Transit Gateway
+      resource_id: "vpc-12345"               // The ID of the resource (e.g., VPC) to attach
+      resource_type: "vpc"                   // The type of resource (default: "vpc")
+      subnet_ids:                            // Subnets for VPC attachments (optional)
+        - "subnet-12345"                     // Example subnet ID
+        - "subnet-12345"                     // Another example subnet ID
+      tags:                                  // Tags associated with the Transit Gateway Attachment
+        - Key: "Environment"                 // Key for the tag (e.g., "Environment")
+          Value: "Production"                // Value for the tag (e.g., "Production")
+        - Key: "Name"                        // Key for the tag (e.g., "Name")
+          Value: "MyTGWAttachment"           // Value for the tag (e.g., "MyTGWAttachment")

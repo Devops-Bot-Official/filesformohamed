@@ -1,23 +1,23 @@
 resources:
   elasticache_cluster_clients:
-    - name: redis-cli
-      version: 7.0
-      region: us-west-1
-      tags:
-        - Key: Environment
-          Value: Production
-        - Key: Project
-          Value: CustomerPortal
-        - Key: Name
-          Value: redis-cli
+    - name: redis-cli                       # The name of the ElastiCache cluster client (e.g., "redis-cli")
+      version: 7.0                          # The version of the client (e.g., "7.0")
+      region: us-west-1                     # The AWS region where the client is used (e.g., "us-west-1")
+      tags:                                 # Tags associated with the client
+        - Key: Environment                  # Key for the tag (e.g., "Environment")
+          Value: Production                 # Value for the tag (e.g., "Production")
+        - Key: Project                      # Key for the tag (e.g., "Project")
+          Value: CustomerPortal             # Value for the tag (e.g., "CustomerPortal")
+        - Key: Name                         # Key for the tag (e.g., "Name")
+          Value: redis-cli                  # Value for the tag (e.g., "redis-cli")
 
-    - name: memcached-tool
-      version: 1.6
-      region: us-west-1
-      tags:
-        - Key: Environment
-          Value: Production
-        - Key: Project
-          Value: CustomerPortal
-        - Key: Name
-          Value: memcached-tool
+    - name: memcached-tool                  # The name of the ElastiCache cluster client (e.g., "memcached-tool")
+      version: 1.6                          # The version of the client (e.g., "1.6")
+      region: us-west-1                     # The AWS region where the client is used (e.g., "us-west-1")
+      tags:                                 # Tags associated with the client
+        - Key: Environment                  # Key for the tag (e.g., "Environment")
+          Value: Production                 # Value for the tag (e.g., "Production")
+        - Key: Project                      # Key for the tag (e.g., "Project")
+          Value: CustomerPortal             # Value for the tag (e.g., "CustomerPortal")
+        - Key: Name                         # Key for the tag (e.g., "Name")
+          Value: memcached-tool             # Value for the tag (e.g., "memcached-tool")

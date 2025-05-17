@@ -1,25 +1,25 @@
 resources:
   rds_read_replicas:
-    - name: my-read-replica-2
-      db_instance_identifier: my-read-replica-2
-      source_db_instance_identifier: my-db-instance
-      db_instance_class: db.t3.micro
-      publicly_accessible: true
-      region: us-west-1
-      tags:
-        - Key: Name
-          Value: "MyReadReplica2"
-        - Key: Environment
-          Value: "Development"
+    - name: my-read-replica-2                # A descriptive name for the read replica
+      db_instance_identifier: my-read-replica-2  # The unique identifier for the read replica
+      source_db_instance_identifier: my-db-instance  # The identifier of the source database instance
+      db_instance_class: db.t3.micro         # The instance class for the read replica (e.g., "db.t3.micro")
+      publicly_accessible: true              # Whether the read replica is publicly accessible (true or false)
+      region: us-west-1                      # The AWS region where the read replica is created (e.g., "us-west-1")
+      tags:                                  # Tags associated with the read replica
+        - Key: Name                          # Key for the tag (e.g., "Name")
+          Value: "MyReadReplica2"            # Value for the tag (e.g., "MyReadReplica2")
+        - Key: Environment                   # Key for the tag (e.g., "Environment")
+          Value: "Development"               # Value for the tag (e.g., "Development")
           
-    - name: my-read-replica-1
-      db_instance_identifier: my-read-replica-1
-      source_db_instance_identifier: my-db-instance
-      db_instance_class: db.t3.micro
-      publicly_accessible: true
-      region: us-west-1
-      tags:
-        - Key: Name
-          Value: "MyReadReplica1"
-        - Key: Environment
-          Value: "Development"
+    - name: my-read-replica-1                # A descriptive name for another read replica
+      db_instance_identifier: my-read-replica-1  # The unique identifier for the read replica
+      source_db_instance_identifier: my-db-instance  # The identifier of the source database instance
+      db_instance_class: db.t3.micro         # The instance class for the read replica (e.g., "db.t3.micro")
+      publicly_accessible: true              # Whether the read replica is publicly accessible (true or false)
+      region: us-west-1                      # The AWS region where the read replica is created (e.g., "us-west-1")
+      tags:                                  # Tags associated with the read replica
+        - Key: Name                          # Key for the tag (e.g., "Name")
+          Value: "MyReadReplica1"            # Value for the tag (e.g., "MyReadReplica1")
+        - Key: Environment                   # Key for the tag (e.g., "Environment")
+          Value: "Development"               # Value for the tag (e.g., "Development")

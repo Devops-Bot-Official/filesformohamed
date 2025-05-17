@@ -1,25 +1,36 @@
 resources:
   route53_record_sets:
-    - name: "api.example.com."
-      hosted_zone_id: "/hostedzone/Z3P5QSUBK4POTI"
-      type: "A"
-      ttl: 300
-      values:
-        - "192.0.2.44"
-        - "192.0.2.45"
-      region: us-east-1
-      tags:
-        - Key: Env
-          Value: Production
+    - name: "api.example.com."               // The fully qualified domain name (FQDN) for the record set
+      hosted_zone_id: "/hostedzone/Z3P5QSUBK4POTI" // The ID of the hosted zone containing the record set
+      type: "A"                              // The DNS record type (e.g., "A", "CNAME", "MX")
+      ttl: 300                               // The time-to-live (TTL) for the record set (in seconds)
+      values:                                // List of IP addresses for the record set
+        - "192.0.2.44"                       // Example IP address
+        - "192.0.2.45"                       // Example IP address
+      region: us-east-1                      // The AWS region where the record set is created
+      tags:                                  // Tags associated with the record set
+        - Key: Env                           // Key for the tag (e.g., "Env")
+          Value: Production                  // Value for the tag (e.g., "Production")
 
-    - name: "www.example.com."
-      hosted_zone_id: "/hostedzone/Z3P5QSUBK4POTI"
-      type: "A"
-      alias_target:
-        HostedZoneId: "Z2FDTNDATAQYW2"  # Example: CloudFront
-        DNSName: "d1234.cloudfront.net."
-        EvaluateTargetHealth: false
-      region: us-east-1
-      tags:
-        - Key: Project
-          Value: WebApp
+    - name: "www.example.com."               // The fully qualified domain name (FQDN) for the record set
+      hosted_zone_id: "/hostedzone/Z3P5QSUBK4POTI" // The ID of the hosted zone containing the record set
+      type: "A"                              // The DNS record type (e.g., "A", "CNAME", "MX")
+      alias_target:                          // Alias target configuration for the record set
+        HostedZoneId: "Z2FDTNDATAQYW2"       // The hosted zone ID of the alias target (e.g., CloudFront)
+        DNSName: "d1234.cloudfront.net."     // The DNS name of the alias target
+        EvaluateTargetHealth: false          // Whether to evaluate the health of the alias target
+      region: us-east-1                      // The AWS region where the record set is created
+      tags:                                  // Tags associated with the record set
+        - Key: Project                       // Key for the tag (e.g., "Project")
+          Value: WebApp                      // Value for the tag (e.g., "WebApp")
+
+    - name: "blog.example.com."              // Duplicate example: The fully qualified domain name (FQDN) for the record set
+      hosted_zone_id: "/hostedzone/Z3P5QSUBK4POTI" // The ID of the hosted zone containing the record set
+      type: "CNAME"                          // The DNS record type (e.g., "CNAME")
+      ttl: 300                               // The time-to-live (TTL) for the record set (in seconds)
+      values:                                // List of DNS names for the record set
+        - "blog-host.example.com."           // Example DNS name
+      region: us-east-1                      // The AWS region where the record set is created
+      tags:                                  // Tags associated with the record set
+        - Key: Env                           // Key for the tag (e.g., "Env")
+          Value: Staging                     // Value for the tag (e.g., "Staging")

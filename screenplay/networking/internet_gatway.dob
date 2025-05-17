@@ -1,7 +1,9 @@
 resources:
   internet_gateways:
-    - vpc_id: vpc-0c4737c217f1e8ef2  # Reference the VPC ID created above
-      region: us-west-1
-      tags:
-        - Key: Name
-          Value: testinternetgatway
+    - vpc_id: vpc-0c4737c217f1e8ef2          // The ID of the VPC where the internet gateway is attached
+      region: us-west-1                      // The AWS region where the internet gateway is created (e.g., "us-west-1")
+      tags:                                  // Tags associated with the internet gateway
+        - Key: Name                          // Key for the tag (e.g., "Name")
+          Value: TestInternetGateway         // Value for the tag (e.g., "TestInternetGateway")
+        - Key: Environment                   // Key for the tag (e.g., "Environment")
+          Value: Development                 // Value for the tag (e.g., "Development")

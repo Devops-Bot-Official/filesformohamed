@@ -1,33 +1,33 @@
 resources:
   cloudfront_distributions:
-    - name: my-distribution
+    - name: my-distribution                  // The name of the CloudFront distribution
       distribution_config:
-        CallerReference: "my-distribution-001"
-        Comment: "Static website CDN"
-        Enabled: true
-        Origins:
-          Quantity: 1
+        CallerReference: "my-distribution-001" // A unique value to identify the request (e.g., timestamp or unique string)
+        Comment: "Static website CDN"        // A comment describing the distribution
+        Enabled: true                        // Whether the distribution is enabled (true or false)
+        Origins:                             // Configuration for the origin servers
+          Quantity: 1                        // The number of origin servers
           Items:
-            - Id: myS3Origin
-              DomainName: mybucket.s3.amazonaws.com
+            - Id: myS3Origin                 // A unique identifier for the origin
+              DomainName: mybucket.s3.amazonaws.com // The domain name of the origin (e.g., S3 bucket or custom origin)
               S3OriginConfig:
-                OriginAccessIdentity: ""
-        DefaultCacheBehavior:
-          TargetOriginId: myS3Origin
-          ViewerProtocolPolicy: redirect-to-https
-          AllowedMethods:
-            Quantity: 2
-            Items: ["GET", "HEAD"]
-            CachedMethods:
-              Quantity: 2
-              Items: ["GET", "HEAD"]
-          ForwardedValues:
-            QueryString: false
+                OriginAccessIdentity: ""     // The origin access identity for S3 (leave empty if not used)
+        DefaultCacheBehavior:                // Default cache behavior configuration
+          TargetOriginId: myS3Origin         // The ID of the origin to associate with this cache behavior
+          ViewerProtocolPolicy: redirect-to-https // How CloudFront handles HTTP/HTTPS requests (e.g., "redirect-to-https")
+          AllowedMethods:                    // HTTP methods allowed for the cache behavior
+            Quantity: 2                      // The number of allowed methods
+            Items: ["GET", "HEAD"]           // List of allowed methods (e.g., "GET", "HEAD", "POST")
+            CachedMethods:                   // HTTP methods cached by CloudFront
+              Quantity: 2                    // The number of cached methods
+              Items: ["GET", "HEAD"]         // List of cached methods
+          ForwardedValues:                   // Settings for forwarding query strings and cookies
+            QueryString: false               // Whether query strings are forwarded to the origin (true or false)
             Cookies:
-              Forward: none
-          TrustedSigners:
-            Enabled: false
-            Quantity: 0
-          MinTTL: 0
-          DefaultTTL: 86400
-          MaxTTL: 31536000
+              Forward: none                  // How cookies are forwarded (e.g., "none", "all", "whitelist")
+          TrustedSigners:                    // Trusted signers for signed URLs or cookies
+            Enabled: false                   // Whether trusted signers are enabled (true or false)
+            Quantity: 0                      // The number of trusted signers
+          MinTTL: 0                          // The minimum time-to-live (TTL) for cached objects (in seconds)
+          DefaultTTL: 86400                  // The default TTL for cached objects (in seconds)
+          MaxTTL: 31536000                   // The maximum TTL for cached objects (in seconds)

@@ -1,31 +1,30 @@
 resources:
   # EC2 Instance creation
   ec2_instances:
-    - name: Infracycle server
-      instance_type: t2.large
-      ami_id: ami-04a5bacc58328233d
-      key_name: keysforfinal
-      region: eu-central-1
-      security_group: sg-046939debef540a3c
-      count: 1
-      tags:
-        - Key: Name
-          Value: Infracycle
-      subnet_id: subnet-0c6c1155ad75aac2d
+    - name: Example Server                  // A descriptive name for the EC2 instance
+      instance_type: t2.large               // The instance type (e.g., "t2.large", "m5.large")
+      ami_id: ami-12345                     // The AMI ID for the instance
+      key_name: example-key                 // The name of the key pair to use for the instance
+      region: eu-central-1                  // The AWS region where the instance is created (e.g., "eu-central-1")
+      security_group: sg-12345              // The ID of the security group to associate with the instance
+      count: 1                              // The number of instances to create
+      tags:                                 // Tags associated with the EC2 instance
+        - Key: Name                         // Key for the tag (e.g., "Name")
+          Value: ExampleServer              // Value for the tag (e.g., "ExampleServer")
+      subnet_id: subnet-12345               // The ID of the subnet where the instance is launched
 
 remote-server:
-  - identifiers: "Infracycle"
-    username: "root"
-    category: "dev"
-  
+  - identifiers: "ExampleServer"            // Identifier for the remote server
+    username: "root"                        // The username to access the server
+    category: "dev"                         // The category of the server (e.g., "dev", "prod")
 
 tasks:
-  - name: "Update Dev Servers"
-    action: "RUN"
-    command: "sudo apt-get update -y"
-  - name: "Installing Python"
+  - name: "Update Dev Servers"              // A descriptive name for the task
+    action: "RUN"                           // The action to perform (e.g., "RUN", "COPY")
+    command: "sudo apt-get update -y"       // The command to execute on the server
+  - name: "Installing Python"               // Another task example
     action: "RUN"
     command: "sudo apt install python3-pip -y"
-  - name: "Creating dir"
+  - name: "Creating Directory"              // Another task example
     action: "RUN"
-    command: "mkdir /home/devops-bot"
+    command: "mkdir /home/devops-bot"       // The command to create a directory

@@ -1,23 +1,23 @@
 resources:
   memorydb_users:
-    - username: redis-admin
-      passwords:
-        - MyStrongPassword123!
-      access_string: "on ~* +@all"
-      region: us-west-1
-      tags:
-        - Key: Environment
-          Value: Production
-        - Key: Role
-          Value: AdminUser
+    - username: redis-admin                  # The username for the MemoryDB user
+      passwords:                             # List of passwords for the user
+        - MyStrongPassword123!               # Example password
+      access_string: "on ~* +@all"           # The access string defining permissions for the user
+      region: us-west-1                      # The AWS region where the user is created (e.g., "us-west-1")
+      tags:                                  # Tags associated with the MemoryDB user
+        - Key: Environment                   # Key for the tag (e.g., "Environment")
+          Value: Production                  # Value for the tag (e.g., "Production")
+        - Key: Role                          # Key for the tag (e.g., "Role")
+          Value: AdminUser                   # Value for the tag (e.g., "AdminUser")
           
-    - username: redis-admin2
-      passwords:
-        - MyStrongPassword123!
-      access_string: "on ~* +@all"
-      region: us-west-1
-      tags:
-        - Key: Environment
-          Value: Production
-        - Key: Role
-          Value: AdminUser
+    - username: readonly-user                # The username for another MemoryDB user
+      passwords:                             # List of passwords for the user
+        - MyStrongPassword456!               # Example password
+      access_string: "on ~readonly/* +get"   # The access string defining permissions for the user
+      region: us-west-1                      # The AWS region where the user is created (e.g., "us-west-1")
+      tags:                                  # Tags associated with the MemoryDB user
+        - Key: Environment                   # Key for the tag (e.g., "Environment")
+          Value: Development                 # Value for the tag (e.g., "Development")
+        - Key: Role                          # Key for the tag (e.g., "Role")
+          Value: ReadOnlyUser                # Value for the tag (e.g., "ReadOnlyUser")

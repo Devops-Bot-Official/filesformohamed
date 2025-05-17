@@ -1,15 +1,15 @@
 resources:
   # Transit Gateway Multicast Domains
   transit_gateway_multicast_domains:
-    - name: "MyTGWMulticastDomain"
-      region: "us-west-1"
-      transit_gateway_id: "tgw-019e04d5c34c730c3"  # ID of the existing Transit Gateway
-      options:
-        AutoAcceptSharedAssociations: "disable"  # Enable or disable auto-accept shared associations
-        Igmpv2Support: "enable"                 # Enable or disable IGMPv2 support
-        StaticSourcesSupport: "enable"          # Enable or disable static sources support
-      tags:
-        - Key: "Environment"
-          Value: "Production"
-        - Key: "Name"
-          Value: "MyTGWMulticastDomain"
+    - name: "MyTGWMulticastDomain"           // A descriptive name for the Transit Gateway Multicast Domain
+      region: "us-west-1"                    // The AWS region where the multicast domain is created (e.g., "us-west-1")
+      transit_gateway_id: "tgw-019e04d5c34c730c3"  // The ID of the existing Transit Gateway
+      options:                               // Configuration options for the multicast domain
+        AutoAcceptSharedAssociations: "disable"  // Enable or disable auto-accept shared associations (e.g., "enable", "disable")
+        Igmpv2Support: "enable"                 // Enable or disable IGMPv2 support (e.g., "enable", "disable")
+        StaticSourcesSupport: "enable"          // Enable or disable static sources support (e.g., "enable", "disable")
+      tags:                                  // Tags associated with the multicast domain
+        - Key: "Environment"                // Key for the tag (e.g., "Environment")
+          Value: "Production"               // Value for the tag (e.g., "Production")
+        - Key: "Name"                       // Key for the tag (e.g., "Name")
+          Value: "MyTGWMulticastDomain"     // Value for the tag (e.g., "MyTGWMulticastDomain")

@@ -3,24 +3,24 @@ resources:
   # IAM ROLE
   ###########################################################################
   iam_roles:
-    - name: "mytestrole"
-      path: "/dev/"
-      region: "us-east-1"
-      assume_role_policy_document: |
+    - name: "ExampleRole"          # The name of the IAM role (e.g., "ExampleRole")
+      path: "/example/"            # The path for the role (e.g., "/example/")
+      region: "us-east-1"          # The AWS region where the role is created (e.g., "us-east-1")
+      assume_role_policy_document: |  # The JSON policy document defining who can assume the role
         {
-          "Version": "2012-10-17",
+          "Version": "2012-10-17",  # The version of the policy language
           "Statement": [
             {
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "ec2.amazonaws.com"
+              "Effect": "Allow",    # The effect of the policy (e.g., "Allow" or "Deny")
+              "Principal": {        # The entity allowed to assume the role
+                "Service": "ec2.amazonaws.com"  # Example service (e.g., "ec2.amazonaws.com")
               },
-              "Action": "sts:AssumeRole"
+              "Action": "sts:AssumeRole"  # The action that allows assuming the role
             }
           ]
         }
-      tags:
-        - Key: "Environment"
-          Value: "Development"
-        - Key: "RolePurpose"
-          Value: "EC2Access"  
+      tags:                         # Tags associated with the IAM role
+        - Key: "Environment"        # Key for the tag (e.g., "Environment")
+          Value: "Production"       # Value for the tag (e.g., "Production")
+        - Key: "RolePurpose"        # Key for the tag (e.g., "RolePurpose")
+          Value: "EC2Access"        # Value for the tag (e.g., "EC2Access")

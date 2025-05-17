@@ -1,22 +1,22 @@
 resources:
 
   subnets:
-    - name: subnet1
-      cidr_block: 10.0.1.0/24
-      availability_zone: us-west-1c
-      vpc_id: vpc-055b6e561b19fad93
-      region: us-west-1
-      auto_assign_public_ip: True
-      tags:
-        - Key: Name
-          Value: testsubnet1
+    - name: subnet1                          // A descriptive name for the subnet
+      cidr_block: 10.0.1.0/24                // The CIDR block for the subnet (e.g., "10.0.1.0/24")
+      availability_zone: us-west-1c          // The availability zone for the subnet (e.g., "us-west-1c")
+      vpc_id: vpc-0123456789abcdef0          // The ID of the VPC where the subnet is created
+      region: us-west-1                      // The AWS region where the subnet is created (e.g., "us-west-1")
+      auto_assign_public_ip: True            // Whether to auto-assign public IPs to instances in the subnet (True/False)
+      tags:                                  // Tags associated with the subnet
+        - Key: Name                          // Key for the tag (e.g., "Name")
+          Value: testsubnet1                 // Value for the tag (e.g., "testsubnet1")
 
-    - name: subnet2
-      cidr_block: 10.0.2.0/24
-      availability_zone: us-west-1c
-      vpc_id: vpc-055b6e561b19fad93
-      region: us-west-1
-      auto_assign_public_ip: True
-      tags:
-        - Key: Name
-          Value: testsubnet2
+    - name: subnet2                          // A descriptive name for another subnet
+      cidr_block: 10.0.2.0/24                // The CIDR block for the subnet (e.g., "10.0.2.0/24")
+      availability_zone: us-west-1c          // The availability zone for the subnet (e.g., "us-west-1c")
+      vpc_id: vpc-0123456789abcdef0          // The ID of the VPC where the subnet is created
+      region: us-west-1                      // The AWS region where the subnet is created (e.g., "us-west-1")
+      auto_assign_public_ip: True            // Whether to auto-assign public IPs to instances in the subnet (True/False)
+      tags:                                  // Tags associated with the subnet
+        - Key: Name                          // Key for the tag (e.g., "Name")
+          Value: testsubnet2                 // Value for the tag (e.g., "testsubnet2")

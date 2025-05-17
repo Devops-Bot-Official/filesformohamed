@@ -1,9 +1,9 @@
 resources:
   root_access_management:
-    - name: root_access_management
-      region: us-east-1
-      enforce_mfa: true
-      check_access_keys: true
-      check_password_enabled: true
-      notify_on_findings: true
-      notification_email: root-security@company.com
+    - name: root_access_management          # The name of the root access management configuration
+      region: us-east-1                     # The AWS region where the configuration is applied (e.g., "us-east-1")
+      enforce_mfa: true                     # Whether MFA is enforced for the root account (true or false)
+      check_access_keys: true               # Whether to check if access keys are enabled for the root account (true or false)
+      check_password_enabled: true          # Whether to check if a password is enabled for the root account (true or false)
+      notify_on_findings: true              # Whether to send notifications if issues are found (true or false)
+      notification_email: root-security@example.com  # Email address to send notifications to

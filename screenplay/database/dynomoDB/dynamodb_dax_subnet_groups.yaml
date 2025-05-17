@@ -1,13 +1,14 @@
 resources:
   dynamodb_dax_subnet_groups:
-    - name: my-dax-subnet-group
-      region: us-west-1
-      subnet_ids:
-        - subnet-00b71dba55855b80a
-        - subnet-072da49a94b22ad5c
+    - name: my-dax-subnet-group            # The name of the DAX subnet group
+      region: us-west-1                    # The AWS region where the subnet group is created (e.g., "us-west-1")
+      subnet_ids:                          # List of subnet IDs associated with the DAX subnet group
+        - subnet-12345                     # Example subnet ID
+        - subnet-67890                     # Another example subnet ID
       description: DAX subnet group for primary deployment
-      tags:
-        - Key: Environment
-          Value: Production
-        - Key: Project
-          Value: RealTimeAnalytics
+        # A description of the DAX subnet group
+      tags:                                # Tags associated with the DAX subnet group
+        - Key: Environment                 # Key for the tag (e.g., "Environment")
+          Value: Production                # Value for the tag (e.g., "Production")
+        - Key: Project                     # Key for the tag (e.g., "Project")
+          Value: RealTimeAnalytics         # Value for the tag (e.g., "RealTimeAnalytics")

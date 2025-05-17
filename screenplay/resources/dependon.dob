@@ -1,81 +1,79 @@
 resources:
   vpcs:
-    - name: MyVPC
-      cidr_block: 10.0.0.0/16
-      region: us-east-1
-      tags:
+    - name: MyVPC                           // A descriptive name for the VPC
+      cidr_block: 10.0.0.0/16               // The CIDR block for the VPC (e.g., "10.0.0.0/16")
+      region: us-east-1                     // The AWS region where the VPC is created (e.g., "us-east-1")
+      tags:                                 // Tags associated with the VPC
         - Key: Name
           Value: MyVPC
 
   subnets:
-    - cidr_block: 10.0.1.0/24
-      availability_zone: us-east-1a
-      vpc_id: ${vpc_id}
-      region: us-east-1
-      auto_assign_public_ip: True
-      tags:
+    - cidr_block: 10.0.1.0/24               // The CIDR block for the subnet (e.g., "10.0.1.0/24")
+      availability_zone: us-east-1a         // The availability zone for the subnet (e.g., "us-east-1a")
+      vpc_id: ${vpc_id}                     // Reference to the VPC ID
+      region: us-east-1                     // The AWS region where the subnet is created
+      auto_assign_public_ip: True           // Whether to auto-assign public IPs to instances in the subnet
+      tags:                                 // Tags associated with the subnet
         - Key: Name
           Value: MySubnet
 
-
   internet_gateways:
-    - vpc_id: ${vpc_id} 
-      region: us-east-1
-      tags:
+    - vpc_id: ${vpc_id}                     // Reference to the VPC ID
+      region: us-east-1                     // The AWS region where the internet gateway is created
+      tags:                                 // Tags associated with the internet gateway
         - Key: Name
           Value: MyIGW
 
   route_tables:
-    - vpc_id: ${vpc_id}
-      region: us-east-1
-      routes:
-        - destination_cidr_block: 0.0.0.0/0
-          gateway_id: ${internet_gateway_id}
-      associations:
-        - subnet: MySubnet
-      tags:
+    - vpc_id: ${vpc_id}                     // Reference to the VPC ID
+      region: us-east-1                     // The AWS region where the route table is created
+      routes:                               // List of routes for the route table
+        - destination_cidr_block: 0.0.0.0/0 // The destination CIDR block for the route
+          gateway_id: ${internet_gateway_id} // Reference to the internet gateway ID
+      associations:                         // List of subnet associations for the route table
+        - subnet: MySubnet                  // Reference to the subnet name
+      tags:                                 // Tags associated with the route table
         - Key: Name
           Value: MyRouteTable
 
   security_groups:
-    - name: MySG
-      description: Allow SSH and HTTP
-      vpc_id: ${vpc_id}
-      region: us-east-1
-      inbound_rules:
+    - name: MySG                            // A descriptive name for the security group
+      description: Allow SSH and HTTP       // A description of the security group
+      vpc_id: ${vpc_id}                     // Reference to the VPC ID
+      region: us-east-1                     // The AWS region where the security group is created
+      inbound_rules:                        // List of inbound rules for the security group
         - protocol: tcp
           port_range: 22
-          cidr_blocks: ['0.0.0.0/0']
+          cidr_blocks: ['0.0.0.0/0']        // Allow SSH from all IPs
         - protocol: tcp
           port_range: 80
-          cidr_blocks: ['0.0.0.0/0']
-      outbound_rules:
+          cidr_blocks: ['0.0.0.0/0']        // Allow HTTP from all IPs
+      outbound_rules:                       // List of outbound rules for the security group
         - protocol: "-1"
           port_range: 0
-          cidr_blocks: ['0.0.0.0/0']
-      tags:
+          cidr_blocks: ['0.0.0.0/0']        // Allow all outbound traffic
+      tags:                                 // Tags associated with the security group
         - Key: Name
           Value: MySecurityGroup
 
   key_pairs:
-    - name: devops-bot
-      region: us-east-1
-      tags:
+    - name: devops-bot                      // A descriptive name for the key pair
+      region: us-east-1                     // The AWS region where the key pair is created
+      tags:                                 // Tags associated with the key pair
         - Key: Environment
           Value: Dev
         - Key: Name
           Value: devops-bot
 
   ec2_instances:
-    - name: ec2 instance
-     # EC2 instance creation
-      instance_type: t2.small
-      ami_id: ami-050887ebff330de9f
-      key_name: devops-bot
-      region: us-east-1
-      security_group: ${security_group_id}
-      count: 1
-      tags:
+    - name: ec2 instance                    // A descriptive name for the EC2 instance
+      instance_type: t2.small               // The instance type (e.g., "t2.small")
+      ami_id: ami-12345                     // The AMI ID for the instance
+      key_name: devops-bot                  // The name of the key pair
+      region: us-east-1                     // The AWS region where the instance is created
+      security_group: ${security_group_id}  // Reference to the security group ID
+      count: 1                              // The number of instances to create
+      tags:                                 // Tags associated with the EC2 instance
         - Key: Name
           Value: Runner
-      subnet_id: ${subnet_id}
+      subnet_id: ${subnet_id}               // Reference to the subnet ID

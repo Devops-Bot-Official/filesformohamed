@@ -1,17 +1,18 @@
 resources:
   elasticache_events:
-    - subscription_name: my-elasticache-event-subscription
+    - subscription_name: my-elasticache-event-subscription  # The name of the event subscription
       sns_topic_arn: arn:aws:sns:us-east-1:123456789012:my-notification-topic
+        # The ARN of the SNS topic to send notifications to
       source_type: replication-group  # Optional: can be 'replication-group', 'cache-cluster', etc.
-      source_ids:
-        - my-redis-replication-group-1
-        - my-redis-replication-group-2
-      event_categories:
-        - availability
-        - failure
-      region: us-east-1
-      tags:
-        - Key: Environment
-          Value: Production
-        - Key: Name
-          Value: MyEventSubscription
+      source_ids:                     # List of source IDs associated with the subscription
+        - my-redis-replication-group-1  # Example source ID (e.g., "my-redis-replication-group-1")
+        - my-redis-replication-group-2  # Example source ID (e.g., "my-redis-replication-group-2")
+      event_categories:               # List of event categories to subscribe to
+        - availability                # Example event category (e.g., "availability")
+        - failure                     # Example event category (e.g., "failure")
+      region: us-east-1               # The AWS region where the subscription is created (e.g., "us-east-1")
+      tags:                           # Tags associated with the event subscription
+        - Key: Environment            # Key for the tag (e.g., "Environment")
+          Value: Production           # Value for the tag (e.g., "Production")
+        - Key: Name                   # Key for the tag (e.g., "Name")
+          Value: MyEventSubscription  # Value for the tag (e.g., "MyEventSubscription")

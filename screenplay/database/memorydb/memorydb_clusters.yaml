@@ -1,15 +1,15 @@
 resources:
   memorydb_clusters:
-    - name: my-memorydb-cluster
-      node_type: db.r6g.large
-      engine_version: 6.2
-      acl_name: my-memorydb-acl
-      subnet_group_name: my-memorydb-subnet-group
-      security_group_ids:
-        - sg-0ca663c8d8e6a2bb3
-      region: us-west-1
-      tags:
-        - Key: Environment
-          Value: Production
-        - Key: Team
-          Value: Payments
+    - name: my-memorydb-cluster              # The name of the MemoryDB cluster
+      node_type: db.r6g.large                # The instance type for the cluster nodes (e.g., "db.r6g.large")
+      engine_version: 6.2                    # The version of the MemoryDB engine (e.g., "6.2")
+      acl_name: my-memorydb-acl              # The name of the Access Control List (ACL) associated with the cluster
+      subnet_group_name: my-memorydb-subnet-group # The name of the subnet group for the cluster
+      security_group_ids:                    # List of security group IDs associated with the cluster
+        - sg-0ca663c8d8e6a2bb3               # Example security group ID
+      region: us-west-1                      # The AWS region where the cluster is created (e.g., "us-west-1")
+      tags:                                  # Tags associated with the MemoryDB cluster
+        - Key: Environment                   # Key for the tag (e.g., "Environment")
+          Value: Production                  # Value for the tag (e.g., "Production")
+        - Key: Team                          # Key for the tag (e.g., "Team")
+          Value: Payments                    # Value for the tag (e.g., "Payments")

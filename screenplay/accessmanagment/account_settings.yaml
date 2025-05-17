@@ -1,15 +1,16 @@
 resources:
   account_settings:
-    - name: my-devops-account
-      region: us-east-1
+    - name: example-account  # The name of your account (e.g., "example-account")
+      region: us-east-1      # The AWS region where the account is located (e.g., "us-east-1")
       password_policy:
-        minimum_length: 12
-        require_symbols: true
-        require_numbers: true
-        require_uppercase: true
-        require_lowercase: true
-        allow_user_change: true
-        max_password_age: 60
-        password_reuse_prevention: 10
-        hard_expiry: false
-      account_alias: my-devops-bot-account
+        minimum_length: 12       # Minimum length for passwords (e.g., 12 characters)
+        require_symbols: true    # Whether passwords must include symbols (true or false)
+        require_numbers: true    # Whether passwords must include numbers (true or false)
+        require_uppercase: true  # Whether passwords must include uppercase letters (true or false)
+        require_lowercase: true  # Whether passwords must include lowercase letters (true or false)
+        allow_user_change: true  # Whether users are allowed to change their passwords (true or false)
+        max_password_age: 90     # Maximum age of passwords in days before they must be changed (e.g., 90)
+        password_reuse_prevention: 5  # Number of previous passwords to prevent reuse (e.g., 5)
+        hard_expiry: false       # Whether passwords expire and cannot be used after the maximum age (true or false)
+      account_alias: example-alias  # An alias for the account (e.g., "example-alias")
+

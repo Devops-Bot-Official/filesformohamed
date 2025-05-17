@@ -1,9 +1,11 @@
 resources:
   resource_gateways:
-    - name: "MyApiGateway"
-      api_name: "MySampleAPI"
-      description: "A simple API Gateway created by screenplay"
-      region: "us-west-1"
-      tags:
-        - Key: "Name"
-          Value: "MyApiGateway"
+    - name: "MyApiGateway"                   // A descriptive name for the API Gateway
+      api_name: "MySampleAPI"                // The name of the API Gateway
+      description: "A simple API Gateway created by screenplay" // A description of the API Gateway
+      region: "us-west-1"                    // The AWS region where the API Gateway is created (e.g., "us-west-1")
+      tags:                                  // Tags associated with the API Gateway
+        - Key: "Name"                        // Key for the tag (e.g., "Name")
+          Value: "MyApiGateway"              // Value for the tag (e.g., "MyApiGateway")
+        - Key: "Environment"                 // Key for the tag (e.g., "Environment")
+          Value: "Development"               // Value for the tag (e.g., "Development")

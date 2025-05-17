@@ -1,13 +1,13 @@
 resources:
   dynamodb_global_tables:
-    - global_table_name: MySampleTable214
-      replication_regions:
-        - us-east-1
-        - eu-west-1
-        - ap-southeast-1
-      region: us-east-1
-      tags:
-        - Key: "Environment"
-          Value: "Production"
-        - Key: "Project"
-          Value: "GlobalDataReplication"
+    - global_table_name: MySampleTable214       # The name of the global DynamoDB table
+      replication_regions:                      # List of AWS regions where the table is replicated
+        - us-east-1                             # Example region (e.g., "us-east-1")
+        - eu-west-1                             # Example region (e.g., "eu-west-1")
+        - ap-southeast-1                        # Example region (e.g., "ap-southeast-1")
+      region: us-east-1                         # The primary AWS region for the global table
+      tags:                                     # Tags associated with the global table
+        - Key: "Environment"                    # Key for the tag (e.g., "Environment")
+          Value: "Production"                   # Value for the tag (e.g., "Production")
+        - Key: "Project"                        # Key for the tag (e.g., "Project")
+          Value: "GlobalDataReplication"        # Value for the tag (e.g., "GlobalDataReplication")

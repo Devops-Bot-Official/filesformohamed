@@ -1,11 +1,11 @@
 resources:
   memorydb_parameter_groups:
-    - name: my-memorydb-param-group
-      family: memorydb_redis6
-      description: "Custom parameter group for MemoryDB Redis 6"
-      region: us-west-1
-      tags:
-        - Key: Environment
-          Value: Production
-        - Key: Project
-          Value: PaymentsService
+    - name: my-memorydb-param-group          # The name of the MemoryDB parameter group
+      family: memorydb_redis6                # The family of the parameter group (e.g., "memorydb_redis6")
+      description: "Custom parameter group for MemoryDB Redis 6"  # A description of the parameter group
+      region: us-west-1                      # The AWS region where the parameter group is created (e.g., "us-west-1")
+      tags:                                  # Tags associated with the parameter group
+        - Key: Environment                   # Key for the tag (e.g., "Environment")
+          Value: Production                  # Value for the tag (e.g., "Production")
+        - Key: Project                       # Key for the tag (e.g., "Project")
+          Value: PaymentsService             # Value for the tag (e.g., "PaymentsService")

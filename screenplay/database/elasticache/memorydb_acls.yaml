@@ -1,22 +1,22 @@
 resources:
   memorydb_acls:
-    - acl_name: my-app-acl
-      usernames:
-        - admin-user
-        - readonly-user
-      region: us-east-1
-      tags:
-        - Key: Environment
-          Value: Production
-        - Key: Project
-          Value: CustomerPortal
+    - acl_name: my-app-acl                   # The name of the MemoryDB ACL (Access Control List)
+      usernames:                             # List of usernames associated with the ACL
+        - admin-user                         # Example username (e.g., "admin-user")
+        - readonly-user                      # Example username (e.g., "readonly-user")
+      region: us-east-1                      # The AWS region where the ACL is created (e.g., "us-east-1")
+      tags:                                  # Tags associated with the ACL
+        - Key: Environment                   # Key for the tag (e.g., "Environment")
+          Value: Production                  # Value for the tag (e.g., "Production")
+        - Key: Project                       # Key for the tag (e.g., "Project")
+          Value: CustomerPortal              # Value for the tag (e.g., "CustomerPortal")
 
-    - acl_name: analytics-acl
-      usernames:
-        - analytics-user
-      region: eu-west-1
-      tags:
-        - Key: Environment
-          Value: Development
-        - Key: Team
-          Value: DataScience
+    - acl_name: analytics-acl                # The name of another MemoryDB ACL
+      usernames:                             # List of usernames associated with the ACL
+        - analytics-user                     # Example username (e.g., "analytics-user")
+      region: eu-west-1                      # The AWS region where the ACL is created (e.g., "eu-west-1")
+      tags:                                  # Tags associated with the ACL
+        - Key: Environment                   # Key for the tag (e.g., "Environment")
+          Value: Development                 # Value for the tag (e.g., "Development")
+        - Key: Team                          # Key for the tag (e.g., "Team")
+          Value: DataScience                 # Value for the tag (e.g., "DataScience")

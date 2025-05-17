@@ -1,27 +1,27 @@
 resources:
   cache_users:
-    - user_id: my-redis-user
-      user_name: redisUser1
-      engine: redis
-      access_string: "on ~* +@all"
-      passwords:
-        - StrongPassword123!
-      no_password_required: false
-      region: us-west-1
-      tags:
-        - Key: Environment
-          Value: Production
-        - Key: Project
-          Value: CustomerPortal
+    - user_id: my-redis-user                 # The unique identifier for the cache user
+      user_name: redisUser1                 # The name of the cache user
+      engine: redis                         # The engine type (e.g., "redis")
+      access_string: "on ~* +@all"          # The access string defining permissions for the user
+      passwords:                            # List of passwords for the user
+        - StrongPassword123!                # Example password
+      no_password_required: false           # Whether a password is required (true or false)
+      region: us-west-1                     # The AWS region where the user is created (e.g., "us-west-1")
+      tags:                                 # Tags associated with the cache user
+        - Key: Environment                  # Key for the tag (e.g., "Environment")
+          Value: Production                 # Value for the tag (e.g., "Production")
+        - Key: Project                      # Key for the tag (e.g., "Project")
+          Value: CustomerPortal             # Value for the tag (e.g., "CustomerPortal")
 
-    - user_id: readonly-user
-      user_name: readonlyUser
-      engine: redis
-      access_string: "on ~readonly/* +get"
-      no_password_required: true
-      region: us-west-1
-      tags:
-        - Key: Environment
-          Value: Development
-        - Key: Role
-          Value: ReadOnly
+    - user_id: readonly-user                # The unique identifier for the cache user
+      user_name: readonlyUser               # The name of the cache user
+      engine: redis                         # The engine type (e.g., "redis")
+      access_string: "on ~readonly/* +get"  # The access string defining permissions for the user
+      no_password_required: true            # Whether a password is required (true or false)
+      region: us-west-1                     # The AWS region where the user is created (e.g., "us-west-1")
+      tags:                                 # Tags associated with the cache user
+        - Key: Environment                  # Key for the tag (e.g., "Environment")
+          Value: Development                # Value for the tag (e.g., "Development")
+        - Key: Role                         # Key for the tag (e.g., "Role")
+          Value: ReadOnly                   # Value for the tag (e.g., "ReadOnly")

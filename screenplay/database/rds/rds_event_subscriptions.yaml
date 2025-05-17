@@ -1,16 +1,17 @@
 resources:
   rds_event_subscriptions:
-    - subscription_name: my-db-event-subscription
+    - subscription_name: my-db-event-subscription  # The name of the RDS event subscription
       sns_topic_arn: arn:aws:sns:us-east-1:123456789012:my-sns-topic
-      source_type: db-instance
-      source_ids:
-        - my-primary-db-instance
-      event_categories:
-        - availability
-        - backup
-      region: us-east-1
-      tags:
-        - Key: "Name"
-          Value: "MyDBEventSubscription"
-        - Key: "Environment"
-          Value: "Development"
+        # The ARN of the SNS topic to send notifications to
+      source_type: db-instance  # The type of source (e.g., "db-instance", "db-cluster")
+      source_ids:               # List of source IDs associated with the subscription
+        - my-primary-db-instance  # Example source ID (e.g., "my-primary-db-instance")
+      event_categories:         # List of event categories to subscribe to
+        - availability          # Example event category (e.g., "availability")
+        - backup                # Example event category (e.g., "backup")
+      region: us-east-1         # The AWS region where the subscription is created (e.g., "us-east-1")
+      tags:                     # Tags associated with the event subscription
+        - Key: "Name"           # Key for the tag (e.g., "Name")
+          Value: "MyDBEventSubscription"  # Value for the tag (e.g., "MyDBEventSubscription")
+        - Key: "Environment"    # Key for the tag (e.g., "Environment")
+          Value: "Development"  # Value for the tag (e.g., "Development")

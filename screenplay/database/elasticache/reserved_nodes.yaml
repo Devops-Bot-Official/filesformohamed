@@ -1,10 +1,10 @@
 resources:
   reserved_nodes:
-    - offering_id: reserved-cache-node-offering-id-here
-      cache_node_count: 1                # (optional) if you want to buy multiple nodes, default is 1
-      region: us-east-1                   # must be specified or fallback to credential default
-      tags:
-        - Key: Environment
-          Value: Production
-        - Key: Project
-          Value: HighPerformanceCache
+    - offering_id: reserved-cache-node-offering-id-here  # The ID of the reserved cache node offering
+      cache_node_count: 1                # (Optional) The number of nodes to reserve, default is 1
+      region: us-east-1                  # The AWS region where the reserved nodes are purchased (e.g., "us-east-1")
+      tags:                              # Tags associated with the reserved nodes
+        - Key: Environment               # Key for the tag (e.g., "Environment")
+          Value: Production              # Value for the tag (e.g., "Production")
+        - Key: Project                   # Key for the tag (e.g., "Project")
+          Value: HighPerformanceCache    # Value for the tag (e.g., "HighPerformanceCache")

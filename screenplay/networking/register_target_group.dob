@@ -1,13 +1,16 @@
 resources:
   target_registrations:
-    - name: app1-targets
-      region: us-west-1
-      target_group_arn: arn:aws:elasticloadbalancing:us-west-1:533267079506:targetgroup/my-app-tg/9c23b45dd6da648e
-      targets:
-        - Id: i-0abcdef1234567890
-          Port: 80
-        - Id: i-0abcdef1234567891
-          AvailabilityZone: us-east-1a
-      tags:
-        - Key: App
-          Value: Frontend
+    - name: app1-targets                     // A descriptive name for the target registration
+      region: us-west-1                      // The AWS region where the target group is registered (e.g., "us-west-1")
+      target_group_arn: arn:aws:elasticloadbalancing:us-west-1:123456789012:targetgroup/my-app-tg/9c23b45dd6da648e
+        // The ARN of the target group
+      targets:                               // List of targets to register with the target group
+        - Id: i-0abcdef1234567890            // The ID of the target (e.g., EC2 instance ID)
+          Port: 80                           // The port on which the target is listening
+        - Id: i-0abcdef1234567891            // The ID of another target
+          AvailabilityZone: us-west-1a       // The availability zone of the target (optional)
+      tags:                                  // Tags associated with the target registration
+        - Key: App                           // Key for the tag (e.g., "App")
+          Value: Frontend                    // Value for the tag (e.g., "Frontend")
+        - Key: Environment                   // Key for the tag (e.g., "Environment")
+          Value: Production                  // Value for the tag (e.g., "Production")

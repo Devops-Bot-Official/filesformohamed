@@ -1,22 +1,24 @@
 resources:
   cloudfront_functions:
-    - name: MyEdgeFunction
+    - name: MyEdgeFunction                   // The name of the CloudFront function
       function_config:
-        Comment: "Basic hello world function"
-        Runtime: cloudfront-js-1.0
-      function_code: |
+        Comment: "Basic hello world function" // A comment describing the function
+        Runtime: cloudfront-js-1.0           // The runtime environment for the function (e.g., "cloudfront-js-1.0")
+      function_code: |                       // The JavaScript code for the CloudFront function
         function handler(event) {
           var response = {
-            statusCode: 200,
-            statusDescription: 'OK',
-            headers: {
-              'cache-control': { value: 'max-age=100' },
-              'content-type': { value: 'text/plain' }
+            statusCode: 200,                 // The HTTP status code for the response
+            statusDescription: 'OK',        // The HTTP status description
+            headers: {                      // The headers for the response
+              'cache-control': { value: 'max-age=100' }, // Example cache control header
+              'content-type': { value: 'text/plain' }    // Example content type header
             },
-            body: 'Hello from CloudFront!'
+            body: 'Hello from CloudFront!'  // The body of the response
           };
-          return response;
+          return response;                  // Return the response object
         }
-      tags:
-        - Key: Name
-          Value: MyEdgeFunction
+      tags:                                 // Tags associated with the CloudFront function
+        - Key: Name                         // Key for the tag (e.g., "Name")
+          Value: MyEdgeFunction             // Value for the tag (e.g., "MyEdgeFunction")
+        - Key: Environment                  // Key for the tag (e.g., "Environment")
+          Value: Development                // Value for the tag (e.g., "Development")

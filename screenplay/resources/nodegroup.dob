@@ -1,17 +1,20 @@
 resources:
   eks_nodegroups:
-    - name: "MyNodeGroup"
-      region: "us-east-1"
-      cluster_name: "MyEKSCluster"
-      instance_types: ["t3.medium"]
-      scaling_config:
-        minSize: 1
-        maxSize: 3
-        desiredSize: 2
-      subnet_ids:
-        - "subnet-08b3efc0fc5d067cf"
-        - "subnet-02389c02fcacc9189"
-      node_role: "arn:aws:iam::533267079506:role/eksctl_role"
-      tags:
-        - Key: "Name"
-          Value: "MyNodeGroup"
+    - name: "MyNodeGroup"                   // A descriptive name for the EKS node group
+      region: "us-east-1"                   // The AWS region where the node group is created (e.g., "us-east-1")
+      cluster_name: "MyEKSCluster"          // The name of the EKS cluster the node group belongs to
+      instance_types: ["t3.medium"]         // List of instance types for the node group (e.g., "t3.medium", "m5.large")
+      scaling_config:                       // Scaling configuration for the node group
+        minSize: 1                          // Minimum number of nodes
+        maxSize: 3                          // Maximum number of nodes
+        desiredSize: 2                      // Desired number of nodes
+      subnet_ids:                           // List of subnet IDs for the node group
+        - "subnet-12345"                    // Example subnet ID
+        - "subnet-67890"                    // Another example subnet ID
+      node_role: "arn:aws:iam::123456789012:role/eks-node-role"
+        // The ARN of the IAM role for the node group
+      tags:                                 // Tags associated with the node group
+        - Key: "Name"                       // Key for the tag (e.g., "Name")
+          Value: "MyNodeGroup"              // Value for the tag (e.g., "MyNodeGroup")
+        - Key: "Environment"                // Key for the tag (e.g., "Environment")
+          Value: "Production"               // Value for the tag (e.g., "Production")

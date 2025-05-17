@@ -1,13 +1,13 @@
 resources:
   ebs_snapshots:
-    - name: app-db-backup
-      region: us-west-1
-      volume_id: vol-06834b707fa549059
-      description: "Daily snapshot for production DB volume"
-      tags:
-        - Key: Name
-          Value: app-db-backup
-        - Key: Environment
-          Value: Production
-        - Key: Backup
-          Value: Daily
+    - name: app-db-backup                    // A descriptive name for the EBS snapshot
+      region: us-west-1                      // The AWS region where the snapshot is created (e.g., "us-west-1")
+      volume_id: vol-12345                   // The ID of the EBS volume to create the snapshot from
+      description: "Daily snapshot for production DB volume" // A description of the snapshot
+      tags:                                  // Tags associated with the snapshot
+        - Key: Name                          // Key for the tag (e.g., "Name")
+          Value: app-db-backup               // Value for the tag (e.g., "app-db-backup")
+        - Key: Environment                   // Key for the tag (e.g., "Environment")
+          Value: Production                  // Value for the tag (e.g., "Production")
+        - Key: Backup                        // Key for the tag (e.g., "Backup")
+          Value: Daily                       // Value for the tag (e.g., "Daily")

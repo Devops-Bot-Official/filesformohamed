@@ -1,20 +1,20 @@
 resources:
   valkey_caches:
-    - name: valkey_caches
-      replication_group_id: my-valkey-cluster
-      region: us-west-1
-      description: Production Valkey Replication Group
-      cache_node_type: cache.t4g.micro
-      num_node_groups: 1
-      replicas_per_node_group: 1
-      automatic_failover: true
-      transit_encryption_enabled: true   
-      security_group_ids:
-        - sg-0ca663c8d8e6a2bb3
-      subnet_group_name: my-elasticache-subnet-group2
-      parameter_group_name: default.valkey8
-      tags:
-        - Key: Environment
-          Value: Production
-        - Key: Name
-          Value: MyValkeyCluster
+    - name: valkey_caches                     # A descriptive name for the Valkey cache configuration
+      replication_group_id: my-valkey-cluster # The unique identifier for the Valkey replication group
+      region: us-west-1                       # The AWS region where the Valkey cache is created (e.g., "us-west-1")
+      description: Production Valkey Replication Group  # A description of the Valkey cache configuration
+      cache_node_type: cache.t4g.micro        # The instance type for the cache nodes (e.g., "cache.t4g.micro")
+      num_node_groups: 1                      # The number of node groups (shards) in the cluster
+      replicas_per_node_group: 1              # The number of replicas per node group (e.g., 1 for high availability)
+      automatic_failover: true                # Whether automatic failover is enabled (true or false)
+      transit_encryption_enabled: true        # Whether transit encryption is enabled (true or false)
+      security_group_ids:                     # List of security group IDs associated with the cluster
+        - sg-0ca663c8d8e6a2bb3                # Example security group ID
+      subnet_group_name: my-elasticache-subnet-group2  # The name of the subnet group for the cluster
+      parameter_group_name: default.valkey8   # The name of the parameter group for the cluster
+      tags:                                   # Tags associated with the Valkey cache
+        - Key: Environment                    # Key for the tag (e.g., "Environment")
+          Value: Production                   # Value for the tag (e.g., "Production")
+        - Key: Name                           # Key for the tag (e.g., "Name")
+          Value: MyValkeyCluster              # Value for the tag (e.g., "MyValkeyCluster")

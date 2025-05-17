@@ -3,9 +3,9 @@
 ###########################################################################
 resources:
   vpcs:
-    - name: vpc creation
-      cidr_block: 10.0.0.0/16
-      region: us-west-1
-      tags:
-        - Key: Name
-          Value: myvpcnew
+    - name: vpc-12345                       // A descriptive name for the VPC
+      cidr_block: 10.0.0.0/16               // The CIDR block for the VPC (e.g., "10.0.0.0/16")
+      region: us-west-1                     // The AWS region where the VPC is created (e.g., "us-west-1")
+      tags:                                 // Tags associated with the VPC
+        - Key: Name                         // Key for the tag (e.g., "Name")
+          Value: vpc-12345                  // Value for the tag (e.g., "vpc-12345")

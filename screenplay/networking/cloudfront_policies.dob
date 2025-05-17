@@ -1,52 +1,52 @@
 resources:
   cloudfront_policies:
-    - name: MyOriginPolicy
-      type: OriginRequest
+    - name: MyOriginPolicy                   // The name of the origin request policy
+      type: OriginRequest                    // The type of policy (e.g., "OriginRequest")
       OriginRequestPolicyConfig:
-        Name: MyOriginPolicy
-        Comment: "Allow headers and query string"
-        HeadersConfig:
-          HeaderBehavior: whitelist
+        Name: MyOriginPolicy                 // The name of the origin request policy
+        Comment: "Allow headers and query string" // A comment describing the policy
+        HeadersConfig:                       // Configuration for headers
+          HeaderBehavior: whitelist          // Behavior for headers (e.g., "whitelist", "none", "all")
           Headers:
-            Quantity: 2
-            Items:
+            Quantity: 2                      // The number of headers to whitelist
+            Items:                           // List of headers to whitelist
               - Authorization
               - Host
-        QueryStringsConfig:
-          QueryStringBehavior: all
-        CookiesConfig:
-          CookieBehavior: none
+        QueryStringsConfig:                  // Configuration for query strings
+          QueryStringBehavior: all           // Behavior for query strings (e.g., "all", "none", "whitelist")
+        CookiesConfig:                       // Configuration for cookies
+          CookieBehavior: none               // Behavior for cookies (e.g., "none", "all", "whitelist")
 
-    - name: MyCachePolicy
-      type: Cache
+    - name: MyCachePolicy                    // The name of the cache policy
+      type: Cache                            // The type of policy (e.g., "Cache")
       CachePolicyConfig:
-        Name: MyCachePolicy
-        Comment: "Cache by path and header"
-        DefaultTTL: 86400
-        MaxTTL: 31536000
-        MinTTL: 0
+        Name: MyCachePolicy                  // The name of the cache policy
+        Comment: "Cache by path and header"  // A comment describing the policy
+        DefaultTTL: 86400                    // The default TTL for cached objects (in seconds)
+        MaxTTL: 31536000                     // The maximum TTL for cached objects (in seconds)
+        MinTTL: 0                            // The minimum TTL for cached objects (in seconds)
         ParametersInCacheKeyAndForwardedToOrigin:
-          EnableAcceptEncodingGzip: true
-          HeadersConfig:
-            HeaderBehavior: none
-          CookiesConfig:
-            CookieBehavior: none
-          QueryStringsConfig:
-            QueryStringBehavior: none
+          EnableAcceptEncodingGzip: true     // Whether to enable gzip encoding (true or false)
+          HeadersConfig:                     // Configuration for headers
+            HeaderBehavior: none             // Behavior for headers (e.g., "none", "whitelist", "all")
+          CookiesConfig:                     // Configuration for cookies
+            CookieBehavior: none             // Behavior for cookies (e.g., "none", "all", "whitelist")
+          QueryStringsConfig:                // Configuration for query strings
+            QueryStringBehavior: none        // Behavior for query strings (e.g., "none", "all", "whitelist")
 
-    - name: MyResponseHeadersPolicy
-      type: ResponseHeaders
+    - name: MyResponseHeadersPolicy          // The name of the response headers policy
+      type: ResponseHeaders                  // The type of policy (e.g., "ResponseHeaders")
       ResponseHeadersPolicyConfig:
-        Name: MyResponsePolicy
-        Comment: "CORS headers"
-        CorsConfig:
+        Name: MyResponsePolicy               // The name of the response headers policy
+        Comment: "CORS headers"              // A comment describing the policy
+        CorsConfig:                          // Configuration for CORS headers
           AccessControlAllowOrigins:
-            Quantity: 1
-            Items: ["*"]
+            Quantity: 1                      // The number of allowed origins
+            Items: ["*"]                     // List of allowed origins (e.g., "*", specific domains)
           AccessControlAllowHeaders:
-            Quantity: 1
-            Items: ["*"]
+            Quantity: 1                      // The number of allowed headers
+            Items: ["*"]                     // List of allowed headers (e.g., "*", specific headers)
           AccessControlAllowMethods:
-            Quantity: 3
-            Items: ["GET", "POST", "OPTIONS"]
-          OriginOverride: true
+            Quantity: 3                      // The number of allowed methods
+            Items: ["GET", "POST", "OPTIONS"] // List of allowed methods (e.g., "GET", "POST", "OPTIONS")
+          OriginOverride: true               // Whether to override the origin's CORS headers (true or false)

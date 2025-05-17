@@ -1,12 +1,12 @@
 resources:
   route53_hosted_zones:
-    - name: example.com
-      private_zone: true
-      comment: "Private zone for internal services"
-      vpc_id: vpc-0123456789abcdef0
-      vpc_region: us-west-2
-      tags:
-        - Key: Environment
-          Value: Internal
-        - Key: Project
-          Value: DNS Management
+    - name: example.com                      // The domain name for the hosted zone
+      private_zone: true                     // Whether the hosted zone is private (true or false)
+      comment: "Private zone for internal services" // A comment describing the hosted zone
+      vpc_id: vpc-0123456789abcdef0          // The ID of the VPC associated with the private hosted zone
+      vpc_region: us-west-2                  // The AWS region of the associated VPC (e.g., "us-west-2")
+      tags:                                  // Tags associated with the hosted zone
+        - Key: Environment                   // Key for the tag (e.g., "Environment")
+          Value: Internal                    // Value for the tag (e.g., "Internal")
+        - Key: Project                       // Key for the tag (e.g., "Project")
+          Value: DNS Management              // Value for the tag (e.g., "DNS Management")

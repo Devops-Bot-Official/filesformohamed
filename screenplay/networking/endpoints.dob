@@ -1,13 +1,15 @@
 resources:
   endpoints:
-    - name: MyS3Endpoint
-      vpc_id: vpc-0c4737c217f1e8ef2
-      service_name: com.amazonaws.us-west-1.s3
-      vpc_endpoint_type: Gateway
-      route_table_ids:
-        - rtb-0182b2f6dc51d7710
-      region: us-west-1
-      tags:
-        - Key: Name
-          Value: MyS3Endpoint
+    - name: MyS3Endpoint                     // A descriptive name for the VPC endpoint
+      vpc_id: vpc-0c4737c217f1e8ef2          // The ID of the VPC where the endpoint is created
+      service_name: com.amazonaws.us-west-1.s3 // The name of the AWS service (e.g., "com.amazonaws.us-west-1.s3")
+      vpc_endpoint_type: Gateway             // The type of VPC endpoint (e.g., "Gateway", "Interface")
+      route_table_ids:                       // List of route table IDs associated with the endpoint (for Gateway endpoints)
+        - rtb-0182b2f6dc51d7710              // Example route table ID
+      region: us-west-1                      // The AWS region where the endpoint is created (e.g., "us-west-1")
+      tags:                                  // Tags associated with the VPC endpoint
+        - Key: Name                          // Key for the tag (e.g., "Name")
+          Value: MyS3Endpoint                // Value for the tag (e.g., "MyS3Endpoint")
+        - Key: Environment                   // Key for the tag (e.g., "Environment")
+          Value: Development                 // Value for the tag (e.g., "Development")
 

@@ -1,11 +1,12 @@
 resources:
   memorydb_snapshots:
-    - snapshot_name: my-memorydb-snapshot
-      cluster_name: my-memorydb-cluster
-      region: us-east-1
+    - snapshot_name: my-memorydb-snapshot       # The name of the MemoryDB snapshot
+      cluster_name: my-memorydb-cluster         # The name of the MemoryDB cluster to snapshot
+      region: us-east-1                         # The AWS region where the snapshot is created (e.g., "us-east-1")
       kms_key_arn: arn:aws:kms:us-east-1:123456789012:key/abcd1234-5678-90ef-ghij-klmnopqrstuv
-      tags:
-        - Key: Environment
-          Value: Production
-        - Key: Project
-          Value: CustomerCache
+        # The ARN of the KMS key used to encrypt the snapshot
+      tags:                                     # Tags associated with the MemoryDB snapshot
+        - Key: Environment                      # Key for the tag (e.g., "Environment")
+          Value: Production                     # Value for the tag (e.g., "Production")
+        - Key: Project                          # Key for the tag (e.g., "Project")
+          Value: CustomerCache                  # Value for the tag (e.g., "CustomerCache")

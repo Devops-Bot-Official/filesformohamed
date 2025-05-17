@@ -1,11 +1,11 @@
 resources:
   # Elastic IP creation
   elastic_ips:
-    - name: myip
-      domain: vpc
-      region: us-west-1
-      tags:
-        - Key: Name
-          Value: TestElasticIP
-        - Key: Environment
-          Value: Dev
+    - name: myip                             // A descriptive name for the Elastic IP
+      domain: vpc                            // The domain for the Elastic IP (e.g., "vpc" for VPC scope)
+      region: us-west-1                      // The AWS region where the Elastic IP is created (e.g., "us-west-1")
+      tags:                                  // Tags associated with the Elastic IP
+        - Key: Name                          // Key for the tag (e.g., "Name")
+          Value: TestElasticIP               // Value for the tag (e.g., "TestElasticIP")
+        - Key: Environment                   // Key for the tag (e.g., "Environment")
+          Value: Dev                         // Value for the tag (e.g., "Dev")

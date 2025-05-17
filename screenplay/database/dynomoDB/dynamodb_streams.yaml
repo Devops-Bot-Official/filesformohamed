@@ -1,11 +1,13 @@
 resources:
   dynamodb_streams:
-    - table_name: MySampleTable214
-      stream_view_type: NEW_AND_OLD_IMAGES
-      region: us-east-1
-    - table_name: MySampleTable214
-      stream_view_type: NEW_AND_OLD_IMAGES
-      region: eu-west-1
-    - table_name: MySampleTable214
-      stream_view_type: NEW_AND_OLD_IMAGES
-      region: ap-southeast-1
+    - table_name: MySampleTable214              # The name of the DynamoDB table with streams enabled
+      stream_view_type: NEW_AND_OLD_IMAGES      # The type of data view for the stream (e.g., "NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY")
+      region: us-east-1                         # The AWS region where the table is located (e.g., "us-east-1")
+
+    - table_name: MySampleTable214              # The name of the DynamoDB table with streams enabled
+      stream_view_type: NEW_AND_OLD_IMAGES      # The type of data view for the stream (e.g., "NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY")
+      region: eu-west-1                         # The AWS region where the table is located (e.g., "eu-west-1")
+
+    - table_name: MySampleTable214              # The name of the DynamoDB table with streams enabled
+      stream_view_type: NEW_AND_OLD_IMAGES      # The type of data view for the stream (e.g., "NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY")
+      region: ap-southeast-1                    # The AWS region where the table is located (e.g., "ap-southeast-1")
