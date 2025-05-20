@@ -1,14 +1,14 @@
 resources:
   cache_user_groups:
-    - user_group_id: my-redis-usergroup
-      engine: redis
-      user_ids:
-        - my-redis-user
-        - readonly-user
-      region: us-west-1
-      tags:
-        - Key: Environment
-          Value: Production
-        - Key: Project
-          Value: CustomerPortal
+    - user_group_id: my-redis-usergroup       # The unique identifier for the cache user group
+      engine: redis                          # The engine type (e.g., "redis")
+      user_ids:                              # List of user IDs associated with the user group
+        - my-redis-user                      # Example user ID (e.g., "my-redis-user")
+        - readonly-user                      # Example user ID (e.g., "readonly-user")
+      region: us-west-1                      # The AWS region where the user group is created (e.g., "us-west-1")
+      tags:                                  # Tags associated with the cache user group
+        - Key: Environment                   # Key for the tag (e.g., "Environment")
+          Value: Production                  # Value for the tag (e.g., "Production")
+        - Key: Project                       # Key for the tag (e.g., "Project")
+          Value: CustomerPortal              # Value for the tag (e.g., "CustomerPortal")
 

@@ -1,11 +1,14 @@
 resources:
   endpoint_services:
-    - name: "my-endpoint-service"
-      network_load_balancer_arns:
-        - "arn:aws:elasticloadbalancing:us-west-1:533267079506:loadbalancer/net/Mapplication/541679b6b576b215"
-      acceptance_required: false
-      region: "us-west-1"
-      tags:
-        - Key: "Name"
-          Value: "MyEndpointService"
+    - name: "my-endpoint-service"            // A descriptive name for the endpoint service
+      network_load_balancer_arns:            // List of ARNs for the associated network load balancers
+        - "arn:aws:elasticloadbalancing:us-west-1:123456789012:loadbalancer/net/my-load-balancer/abcdef1234567890"
+          // Example ARN of a network load balancer
+      acceptance_required: false             // Whether acceptance is required for service consumers (true or false)
+      region: "us-west-1"                    // The AWS region where the endpoint service is created (e.g., "us-west-1")
+      tags:                                  // Tags associated with the endpoint service
+        - Key: "Name"                        // Key for the tag (e.g., "Name")
+          Value: "MyEndpointService"         // Value for the tag (e.g., "MyEndpointService")
+        - Key: "Environment"                 // Key for the tag (e.g., "Environment")
+          Value: "Production"                // Value for the tag (e.g., "Production")
 

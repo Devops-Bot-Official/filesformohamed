@@ -1,13 +1,18 @@
 resources:
   route_tables:
-    - name: TestRoutTable
-      vpc_id: vpc-0c4737c217f1e8ef2
-      region: us-west-1
-      routes:
-        - destination_cidr_block: "0.0.0.0/0"
-          gateway_id: igw-08678c3d2aa16867e   # Attach Internet Gateway
-      associations:
-        - subnet: testsubnet
-      tags:
-        - Key: Name
-          Value: TestRoutTable
+    - name: MyRouteTable                     // A descriptive name for the route table
+      vpc_id: vpc-0123456789abcdef0          // The ID of the VPC associated with the route table
+      region: us-west-2                      // The AWS region where the route table is created (e.g., "us-west-2")
+      routes:                                // List of routes for the route table
+        - destination_cidr_block: "0.0.0.0/0" // The destination CIDR block for the route
+          gateway_id: igw-0abcdef1234567890   // The ID of the gateway (e.g., Internet Gateway, NAT Gateway)
+        - destination_cidr_block: "10.0.1.0/24" // Another route example
+          nat_gateway_id: nat-0abcdef1234567890 // The ID of the NAT Gateway
+      associations:                          // List of subnet associations for the route table
+        - subnet: subnet-0123456789abcdef0   // The ID of the subnet to associate with the route table
+        - subnet: subnet-0abcdef1234567890   // Another subnet association example
+      tags:                                  // Tags associated with the route table
+        - Key: Name                          // Key for the tag (e.g., "Name")
+          Value: MyRouteTable                // Value for the tag (e.g., "MyRouteTable")
+        - Key: Environment                   // Key for the tag (e.g., "Environment")
+          Value: Production                  // Value for the tag (e.g., "Production")

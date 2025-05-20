@@ -1,20 +1,22 @@
 resources:
   security_groups:
-    - name: SecurityGroup
-      vpc_id: vpc-055b6e561b19fad93
-      description: Allow HTTP and HTTPS traffic
-      region: us-west-1
-      inbound_rules:
-        - protocol: tcp
-          port_range: 22
-          cidr_blocks: "0.0.0.0/0"
+    - name: MySecurityGroup                 // A descriptive name for the security group
+      vpc_id: vpc-0123456789abcdef0         // The ID of the VPC where the security group is created
+      description: Allow HTTP, HTTPS, and SSH traffic // A description of the security group
+      region: us-west-1                     // The AWS region where the security group is created (e.g., "us-west-1")
+      inbound_rules:                        // List of inbound rules for the security group
+        - protocol: tcp                     // The protocol for the rule (e.g., "tcp", "udp", "icmp")
+          port_range: 22                    // The port or port range for the rule (e.g., 22, 80-443)
+          cidr_blocks: "0.0.0.0/0"          // The CIDR block for the rule (e.g., "0.0.0.0/0" for all IPs)
         - protocol: tcp
           port_range: 80
           cidr_blocks: "0.0.0.0/0"
         - protocol: tcp
           port_range: 443
           cidr_blocks: "0.0.0.0/0"
-      tags:
-        - Key: Name
-          Value: mysecuritgroup
+      tags:                                 // Tags associated with the security group
+        - Key: Name                         // Key for the tag (e.g., "Name")
+          Value: MySecurityGroup            // Value for the tag (e.g., "MySecurityGroup")
+        - Key: Environment                  // Key for the tag (e.g., "Environment")
+          Value: Production                 // Value for the tag (e.g., "Production")
 

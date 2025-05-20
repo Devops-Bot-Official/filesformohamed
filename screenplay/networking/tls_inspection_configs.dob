@@ -1,18 +1,21 @@
 
 resources:
   tls_inspection_configs:
-    - name: "MyTLSInspectionConfig"
-      region: "us-east-1"
-      inspection_certificate_arn: "arn:aws:acm:us-east-1:533267079506:certificate/fbb0cf5a-b25b-4fec-9ed2-a7eca3acac16"
-      description: "TLS Inspection Config for Network Firewall"
-      scopes:
-        - sources:
-            - address_definition: "10.0.0.0/16"
-          destinations:
-            - address_definition: "0.0.0.0/0"
-          source_ports: []
-          destination_ports: []
-          protocols: []
-      tags:
-        - Key: "Environment"
-          Value: "Production"
+    - name: "MyTLSInspectionConfig"          // A descriptive name for the TLS inspection configuration
+      region: "us-east-1"                    // The AWS region where the TLS inspection configuration is created (e.g., "us-east-1")
+      inspection_certificate_arn: "arn:aws:acm:us-east-1:123456789012:certificate/example-certificate-arn"
+        // The ARN of the ACM certificate used for TLS inspection
+      description: "TLS Inspection Config for Network Firewall" // A description of the TLS inspection configuration
+      scopes:                               // Scopes defining the inspection rules
+        - sources:                          // List of source address definitions
+            - address_definition: "10.0.0.0/16" // Example source CIDR block
+          destinations:                     // List of destination address definitions
+            - address_definition: "0.0.0.0/0"  // Example destination CIDR block
+          source_ports: []                  // List of source ports (leave empty for all ports)
+          destination_ports: []             // List of destination ports (leave empty for all ports)
+          protocols: []                     // List of protocols (leave empty for all protocols)
+      tags:                                 // Tags associated with the TLS inspection configuration
+        - Key: "Environment"                // Key for the tag (e.g., "Environment")
+          Value: "Production"               // Value for the tag (e.g., "Production")
+        - Key: "Name"                       // Key for the tag (e.g., "Name")
+          Value: "MyTLSInspectionConfig"    // Value for the tag (e.g., "MyTLSInspectionConfig")

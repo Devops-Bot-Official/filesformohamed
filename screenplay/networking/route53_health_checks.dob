@@ -1,14 +1,16 @@
 resources:
   route53_health_checks:
-    - name: "my-api-healthcheck"
-      region: us-east-1
-      health_check_config:
-        Type: "HTTPS"
-        FullyQualifiedDomainName: "api.example.com"
-        Port: 443
-        ResourcePath: "/health"
-        RequestInterval: 30
-        FailureThreshold: 3
-      tags:
-        - Key: Environment
-          Value: Production
+    - name: "my-api-healthcheck"             // A descriptive name for the Route 53 health check
+      region: us-east-1                      // The AWS region where the health check is created (e.g., "us-east-1")
+      health_check_config:                   // Configuration for the health check
+        Type: "HTTPS"                        // The protocol type for the health check (e.g., "HTTP", "HTTPS", "TCP")
+        FullyQualifiedDomainName: "api.example.com" // The domain name of the endpoint to check
+        Port: 443                            // The port to use for the health check (e.g., 80, 443)
+        ResourcePath: "/health"              // The path to check on the endpoint (e.g., "/health")
+        RequestInterval: 30                  // The interval (in seconds) between health checks (e.g., 30, 60)
+        FailureThreshold: 3                  // The number of consecutive failures before marking as unhealthy
+      tags:                                  // Tags associated with the health check
+        - Key: Environment                   // Key for the tag (e.g., "Environment")
+          Value: Production                  // Value for the tag (e.g., "Production")
+        - Key: Name                          // Key for the tag (e.g., "Name")
+          Value: MyAPIHealthCheck            // Value for the tag (e.g., "MyAPIHealthCheck")

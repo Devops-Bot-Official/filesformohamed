@@ -1,11 +1,12 @@
 resources:
   route53_query_logging_configs:
-    - name: my-query-logs
-      region: us-east-1
-      hosted_zone_id: Z3P5QSUBK4POTI  # Replace with your actual Hosted Zone ID
+    - name: my-query-logs                    // A descriptive name for the query logging configuration
+      region: us-east-1                      // The AWS region where the query logging configuration is created (e.g., "us-east-1")
+      hosted_zone_id: Z3NEWZONEID12345       // The ID of the hosted zone to log queries for
       log_group_arn: arn:aws:logs:us-east-1:123456789012:log-group:/aws/route53/my-zone-logs
-      tags:
-        - Key: Environment
-          Value: Production
-        - Key: Owner
-          Value: DevOpsTeam
+        // The ARN of the CloudWatch Logs log group to store query logs
+      tags:                                  // Tags associated with the query logging configuration
+        - Key: Environment                   // Key for the tag (e.g., "Environment")
+          Value: Production                  // Value for the tag (e.g., "Production")
+        - Key: Owner                         // Key for the tag (e.g., "Owner")
+          Value: DevOpsTeam                  // Value for the tag (e.g., "DevOpsTeam")

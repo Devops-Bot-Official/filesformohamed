@@ -1,12 +1,12 @@
 resources:
   ebs_volumes:
-    - name: dev-data-volume
-      region: us-west-1
-      availability_zone: us-west-1a
-      size: 100
-      volume_type: gp3
-      tags:
-        - Key: Name
-          Value: dev-data-volume
-        - Key: Environment
-          Value: Dev
+    - name: dev-data-volume                 // A descriptive name for the EBS volume
+      region: us-west-1                     // The AWS region where the volume is created (e.g., "us-west-1")
+      availability_zone: us-west-1a         // The availability zone for the volume (e.g., "us-west-1a")
+      size: 100                             // The size of the volume in GiB (e.g., "100")
+      volume_type: gp3                      // The type of the volume (e.g., "gp3", "io1", "st1")
+      tags:                                 // Tags associated with the EBS volume
+        - Key: Name                         // Key for the tag (e.g., "Name")
+          Value: dev-data-volume            // Value for the tag (e.g., "dev-data-volume")
+        - Key: Environment                  // Key for the tag (e.g., "Environment")
+          Value: Dev                        // Value for the tag (e.g., "Dev")

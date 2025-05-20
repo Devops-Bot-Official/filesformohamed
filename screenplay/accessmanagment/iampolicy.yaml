@@ -1,25 +1,26 @@
 resources:
   ###########################################################################
-  # USER GROUPS
+  # IAM POLICIES
   ###########################################################################
   iam_policies:
-    - name: "newpolicetocheck"
-      region: "us-east-1"
-      policy_document: |
+    - name: "ExamplePolicy"                # The name of the IAM policy (e.g., "ExamplePolicy")
+      region: "us-east-1"                  # The AWS region where the policy is created (e.g., "us-east-1")
+      policy_document: |                   # The JSON policy document defining permissions
         {
-          "Version": "2012-10-17",
+          "Version": "2012-10-17",         # The version of the policy language
           "Statement": [
             {
-              "Effect": "Allow",
-              "Action": [
-                "s3:ListAllMyBuckets"
+              "Effect": "Allow",           # The effect of the policy (e.g., "Allow" or "Deny")
+              "Action": [                  # The actions allowed or denied by the policy
+                "s3:ListAllMyBuckets",     # Example action (e.g., "s3:ListAllMyBuckets")
+                "s3:GetObject"             # Example action (e.g., "s3:GetObject")
               ],
-              "Resource": "*"
+              "Resource": "*"              # The resources affected by the policy (e.g., "*" for all resources)
             }
           ]
         }
-      tags:
-        - Key: "Environment"
-          Value: "Development"
-        - Key: "PolicyType"
-          Value: "ListBucketsOnly"
+      tags:                                # Tags associated with the IAM policy
+        - Key: "Environment"               # Key for the tag (e.g., "Environment")
+          Value: "Development"             # Value for the tag (e.g., "Development")
+        - Key: "PolicyType"                # Key for the tag (e.g., "PolicyType")
+          Value: "S3Access"                # Value for the tag (e.g., "S3Access")

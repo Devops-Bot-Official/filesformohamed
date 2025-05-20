@@ -1,24 +1,24 @@
 resources:
   user_groups:
-    - name: DevTeamGroup
-      region: us-east-1
-      path: /dev/
-      tags:
-        - Key: Team
-          Value: Development
-        - Key: Environment
-          Value: Production
-        - Key: Name 
-          Value: DevTeamGroup    
+    - name: DevTeamGroup                    # The name of the IAM group (e.g., "DevTeamGroup")
+      region: us-east-1                     # The AWS region where the group is created (e.g., "us-east-1")
+      path: /dev/                           # The path for the group (e.g., "/dev/")
+      tags:                                 # Tags associated with the IAM group
+        - Key: Team                         # Key for the tag (e.g., "Team")
+          Value: Development                # Value for the tag (e.g., "Development")
+        - Key: Environment                  # Key for the tag (e.g., "Environment")
+          Value: Production                 # Value for the tag (e.g., "Production")
+        - Key: Name                         # Key for the tag (e.g., "Name")
+          Value: DevTeamGroup               # Value for the tag (e.g., "DevTeamGroup")
 
-    - name: QAGroup
-      region: eu-west-1
-      path: /qa/
-      tags:
-        - Key: Team
-          Value: QA
-        - Key: Project
-          Value: CustomerPortal
-        - Key: Name 
-          Value: QAGroup          
+    - name: QAGroup                         # The name of the IAM group (e.g., "QAGroup")
+      region: eu-west-1                     # The AWS region where the group is created (e.g., "eu-west-1")
+      path: /qa/                            # The path for the group (e.g., "/qa/")
+      tags:                                 # Tags associated with the IAM group
+        - Key: Team                         # Key for the tag (e.g., "Team")
+          Value: QA                         # Value for the tag (e.g., "QA")
+        - Key: Project                      # Key for the tag (e.g., "Project")
+          Value: CustomerPortal             # Value for the tag (e.g., "CustomerPortal")
+        - Key: Name                         # Key for the tag (e.g., "Name")
+          Value: QAGroup                    # Value for the tag (e.g., "QAGroup")
 

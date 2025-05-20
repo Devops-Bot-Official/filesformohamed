@@ -1,18 +1,18 @@
 resources:
   redis_caches:
-    - replication_group_id: my-redis-ha-cluster
-      description: "Highly available Redis cluster with automatic failover"
-      cache_node_type: cache.m6g.large
-      num_node_groups: 1
-      replicas_per_node_group: 1   # 👈 VERY IMPORTANT!
-      automatic_failover: true
-      region: us-east-1
-      security_group_ids:
-        - sg-0db7a7e95c08483e1
-      subnet_group_name: my-elasticache-subnet-group2
-      parameter_group_name: my-redis-parameter-group
-      tags:
-        - Key: Name
-          Value: "MyRedisHACluster"
-        - Key: Environment
-          Value: "Production"
+    - replication_group_id: my-redis-ha-cluster  # The unique identifier for the Redis replication group
+      description: "Highly available Redis cluster with automatic failover"  # A description of the Redis cache configuration
+      cache_node_type: cache.m6g.large          # The instance type for the cache nodes (e.g., "cache.m6g.large")
+      num_node_groups: 1                        # The number of node groups (shards) in the cluster
+      replicas_per_node_group: 1                # The number of replicas per node group (e.g., 1 for high availability)
+      automatic_failover: true                  # Whether automatic failover is enabled (true or false)
+      region: us-east-1                         # The AWS region where the Redis cache is created (e.g., "us-east-1")
+      security_group_ids:                       # List of security group IDs associated with the cluster
+        - sg-0db7a7e95c08483e1                  # Example security group ID
+      subnet_group_name: my-elasticache-subnet-group2  # The name of the subnet group for the cluster
+      parameter_group_name: my-redis-parameter-group  # The name of the parameter group for the cluster
+      tags:                                     # Tags associated with the Redis cache
+        - Key: Name                             # Key for the tag (e.g., "Name")
+          Value: "MyRedisHACluster"             # Value for the tag (e.g., "MyRedisHACluster")
+        - Key: Environment                      # Key for the tag (e.g., "Environment")
+          Value: "Production"                   # Value for the tag (e.g., "Production")

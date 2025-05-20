@@ -3,14 +3,14 @@ resources:
   # SITE-TO-SITE VPN CONNECTIONS
   ######################################################################
   vpn_connections:
-    - name : vpn connection
-      customer_gateway_id: "cgw-00b2c7b899445c287"
-      #vpn_gateway_id: "vgw-054c428013f26c8d2"
-      region: "us-west-1"
+    - name: vpn-12345                        // A descriptive name for the VPN connection
+      customer_gateway_id: "cgw-12345"       // The ID of the Customer Gateway
+      #vpn_gateway_id: "vgw-12345"           // The ID of the Virtual Private Gateway (optional)
+      region: "us-west-1"                    // The AWS region where the VPN connection is created (e.g., "us-west-1")
       # Optionally, if using a Transit Gateway instead:
-      transit_gateway_id: "tgw-0145cefc510eeefc5"
-      tags:
-        - Key: "Environment"
-          Value: "Production"
-        - Key: "Name"
-          Value: "MySiteToSiteVPNwithtgw"
+      transit_gateway_id: "tgw-12345"        // The ID of the Transit Gateway (optional)
+      tags:                                  // Tags associated with the VPN connection
+        - Key: "Environment"                 // Key for the tag (e.g., "Environment")
+          Value: "Production"                // Value for the tag (e.g., "Production")
+        - Key: "Name"                        // Key for the tag (e.g., "Name")
+          Value: "vpn-12345"                 // Value for the tag (e.g., "vpn-12345")

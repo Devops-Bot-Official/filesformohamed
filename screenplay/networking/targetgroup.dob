@@ -1,23 +1,25 @@
 resources:
   target_groups:
-    - name: my-app-tg
-      region: us-west-1
-      protocol: HTTP
-      port: 80
-      vpc_id: vpc-055b6e561b19fad93
-      target_type: instance
-      health_check_protocol: HTTP
-      health_check_path: /health
-      health_check_interval: 30
-      health_check_timeout: 5
-      healthy_threshold: 3
-      unhealthy_threshold: 2
-      ip_address_type: ipv4
-      matcher:
-        HttpCode: 200-299
-      target_group_attributes:
+    - name: my-app-tg                        // A descriptive name for the target group
+      region: us-west-1                      // The AWS region where the target group is created (e.g., "us-west-1")
+      protocol: HTTP                         // The protocol for the target group (e.g., "HTTP", "HTTPS")
+      port: 80                               // The port on which the target group listens (e.g., 80, 443)
+      vpc_id: vpc-055b6e561b19fad93          // The ID of the VPC associated with the target group
+      target_type: instance                  // The type of targets in the group (e.g., "instance", "ip", "lambda")
+      health_check_protocol: HTTP            // The protocol for health checks (e.g., "HTTP", "HTTPS", "TCP")
+      health_check_path: /health             // The path for health checks (e.g., "/health")
+      health_check_interval: 30              // The interval (in seconds) between health checks
+      health_check_timeout: 5                // The timeout (in seconds) for health checks
+      healthy_threshold: 3                   // The number of consecutive successes to mark as healthy
+      unhealthy_threshold: 2                 // The number of consecutive failures to mark as unhealthy
+      ip_address_type: ipv4                  // The IP address type (e.g., "ipv4", "dualstack")
+      matcher:                               // The HTTP code matcher for health checks
+        HttpCode: 200-299                    // The range of HTTP codes considered healthy
+      target_group_attributes:               // Additional attributes for the target group
         - Key: deregistration_delay.timeout_seconds
-          Value: "10"
-      tags:
-        - Key: Environment
-          Value: Production
+          Value: "10"                        // The deregistration delay timeout (in seconds)
+      tags:                                  // Tags associated with the target group
+        - Key: Environment                   // Key for the tag (e.g., "Environment")
+          Value: Production                  // Value for the tag (e.g., "Production")
+        - Key: Name                          // Key for the tag (e.g., "Name")
+          Value: MyAppTargetGroup            // Value for the tag (e.g., "MyAppTargetGroup")

@@ -3,12 +3,12 @@ resources:
   # VIRTUAL PRIVATE GATEWAYS
   ######################################################################
   virtual_private_gateways:
-    - name: privategateway
-      amazon_side_asn: 64512
-      region: "us-west-1"
-      tags:
-        - Key: "Environment"
-          Value: "Production"
-        - Key: "Name"
-          Value: "MyVirtualPrivateGateway"
+    - name: privategateway                   // A descriptive name for the Virtual Private Gateway
+      amazon_side_asn: 64512                 // Amazon Side ASN (Autonomous System Number)
+      region: "us-west-1"                    // The AWS region where the Virtual Private Gateway is created (e.g., "us-west-1")
+      tags:                                  // Tags associated with the Virtual Private Gateway
+        - Key: "Environment"                 // Key for the tag (e.g., "Environment")
+          Value: "Production"                // Value for the tag (e.g., "Production")
+        - Key: "Name"                        // Key for the tag (e.g., "Name")
+          Value: "MyVirtualPrivateGateway"   // Value for the tag (e.g., "MyVirtualPrivateGateway")
 

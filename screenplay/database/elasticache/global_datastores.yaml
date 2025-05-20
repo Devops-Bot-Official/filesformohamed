@@ -1,12 +1,15 @@
 resources:
   # Global Datastore
   global_datastores:
-    - name: "globaldatabase" 
-      global_datastore_id: "testdatabase"
+    - name: "globaldatabase"                  # A descriptive name for the global datastore
+      global_datastore_id: "testdatabase"     # The unique identifier for the global datastore
       primary_replication_group_id: "my-redis-single-node2"
-      replica_regions:
-        - "us-west-2"
-      region: "us-west-1"
-      tags:
-        - Key: "Environment"
-          Value: "Development"
+        # The ID of the primary replication group
+      replica_regions:                        # List of AWS regions where replicas are created
+        - "us-west-2"                         # Example region (e.g., "us-west-2")
+      region: "us-west-1"                     # The primary AWS region for the global datastore
+      tags:                                   # Tags associated with the global datastore
+        - Key: "Environment"                  # Key for the tag (e.g., "Environment")
+          Value: "Development"                # Value for the tag (e.g., "Development")
+        - Key: "Project"                      # Key for the tag (e.g., "Project")
+          Value: "GlobalCache"                # Value for the tag (e.g., "GlobalCache")

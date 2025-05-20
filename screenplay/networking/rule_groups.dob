@@ -1,13 +1,16 @@
 resources:
   rule_groups:
-    - name: my-rule-group
-      region: us-west-1
-      capacity: 100
-      rule_group_type: STATEFUL
-      description: Allow web traffic
-      rules:
-        - 'pass tcp 10.0.0.0/16 any -> 192.168.0.0/16 [80,443] (msg:"Allow Web Traffic"; sid:1001;)'
-      tags:
-        - Key: Name
-          Value: my-rule-group
+    - name: my-rule-group                    // A descriptive name for the rule group
+      region: us-west-1                      // The AWS region where the rule group is created (e.g., "us-west-1")
+      capacity: 100                          // The capacity units for the rule group
+      rule_group_type: STATEFUL              // The type of rule group (e.g., "STATEFUL", "STATELESS")
+      description: Allow web traffic         // A description of the rule group
+      rules:                                 // List of rules for the rule group
+        - 'pass tcp 10.0.0.0/16 any -> 192.168.0.0/16 [80,443] (msg:"Allow Web Traffic"; sid:1001;)' 
+          // Example rule to allow web traffic
+      tags:                                  // Tags associated with the rule group
+        - Key: Name                          // Key for the tag (e.g., "Name")
+          Value: my-rule-group               // Value for the tag (e.g., "my-rule-group")
+        - Key: Environment                   // Key for the tag (e.g., "Environment")
+          Value: Production                  // Value for the tag (e.g., "Production")
 

@@ -1,11 +1,11 @@
 resources:
   db_parameter_groups:
-    - name: my-db-parameter-group
-      family: mysql8.0
-      description: "Custom MySQL 8.0 parameter group for performance tuning"
-      region: us-west-1
-      tags:
-        - Key: Name
-          Value: "MyDBParameterGroup"
-        - Key: Environment
-          Value: "Development"
+    - name: my-db-parameter-group            # The name of the DB parameter group
+      family: mysql8.0                       # The family of the parameter group (e.g., "mysql8.0", "postgres13")
+      description: "Custom MySQL 8.0 parameter group for performance tuning"  # A description of the parameter group
+      region: us-west-1                      # The AWS region where the parameter group is created (e.g., "us-west-1")
+      tags:                                  # Tags associated with the DB parameter group
+        - Key: Name                          # Key for the tag (e.g., "Name")
+          Value: "MyDBParameterGroup"        # Value for the tag (e.g., "MyDBParameterGroup")
+        - Key: Environment                   # Key for the tag (e.g., "Environment")
+          Value: "Development"               # Value for the tag (e.g., "Development")

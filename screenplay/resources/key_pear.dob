@@ -1,9 +1,9 @@
 resources:
   key_pairs:
-    - name: devops-key
-      region: us-west-1
-      tags:
-        - Key: Environment
-          Value: Dev
-        - Key: Name
-          Value: devops-key
+    - name: example-key                     // A descriptive name for the key pair
+      region: us-west-1                     // The AWS region where the key pair is created (e.g., "us-west-1")
+      tags:                                 // Tags associated with the key pair
+        - Key: Environment                  // Key for the tag (e.g., "Environment")
+          Value: Dev                        // Value for the tag (e.g., "Dev")
+        - Key: Name                         // Key for the tag (e.g., "Name")
+          Value: example-key                // Value for the tag (e.g., "example-key")

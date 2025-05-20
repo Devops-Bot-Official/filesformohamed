@@ -1,12 +1,12 @@
 resources:
   backups:
-    - name: backup
-      snapshot_name: my-redis-snapshot
-      source: my-valkey-cluster
-      source_type: replication_group        # or "cache_cluster" if snapshotting a single node
-      region: us-west-1
-      tags:
-        - Key: Environment
-          Value: Production
-        - Key: Project
-          Value: RedisBackup
+    - name: backup                           # A descriptive name for the backup configuration
+      snapshot_name: my-redis-snapshot       # The name of the snapshot (e.g., "my-redis-snapshot")
+      source: my-valkey-cluster              # The source of the backup (e.g., "my-valkey-cluster")
+      source_type: replication_group         # The type of source (e.g., "replication_group" or "cache_cluster")
+      region: us-west-1                      # The AWS region where the backup is created (e.g., "us-west-1")
+      tags:                                  # Tags associated with the backup
+        - Key: Environment                   # Key for the tag (e.g., "Environment")
+          Value: Production                  # Value for the tag (e.g., "Production")
+        - Key: Project                       # Key for the tag (e.g., "Project")
+          Value: RedisBackup                 # Value for the tag (e.g., "RedisBackup")

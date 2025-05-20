@@ -1,10 +1,10 @@
 resources:
   access_analyzers:
-    - name: "MyAccessAnalyzer"
-      region: "us-west-1"
-      type: "ACCOUNT"
-      tags:
-        - Key: "Environment"
-          Value: "Production"
-        - Key: "Name"
-          Value: "MyAccessAnalyzer"
+    - name: "MyAccessAnalyzer"               // The name of the Access Analyzer
+      region: "us-west-1"                    // The AWS region where the Access Analyzer is created (e.g., "us-west-1")
+      type: "ACCOUNT"                        // The type of analyzer (e.g., "ACCOUNT" or "ORGANIZATION")
+      tags:                                  // Tags associated with the Access Analyzer
+        - Key: "Environment"                 // Key for the tag (e.g., "Environment")
+          Value: "Production"                // Value for the tag (e.g., "Production")
+        - Key: "Name"                        // Key for the tag (e.g., "Name")
+          Value: "MyAccessAnalyzer"          // Value for the tag (e.g., "MyAccessAnalyzer")

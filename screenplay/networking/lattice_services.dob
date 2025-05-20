@@ -1,9 +1,11 @@
 resources:
   # Lattice Services
   lattice_services:
-    - name: "latencyservice"
-      auth_type: "AWS_IAM"
-      region: "us-west-1"
-      tags:
-        - Key: "APIVersion"
-          Value: "2.0"
+    - name: "latencyservice"                 // A descriptive name for the Lattice service
+      auth_type: "AWS_IAM"                   // The authentication type for the service (e.g., "AWS_IAM", "NONE")
+      region: "us-west-1"                    // The AWS region where the Lattice service is created (e.g., "us-west-1")
+      tags:                                  // Tags associated with the Lattice service
+        - Key: "APIVersion"                  // Key for the tag (e.g., "APIVersion")
+          Value: "2.0"                       // Value for the tag (e.g., "2.0")
+        - Key: "Environment"                 // Key for the tag (e.g., "Environment")
+          Value: "Production"                // Value for the tag (e.g., "Production")

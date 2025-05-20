@@ -3,14 +3,14 @@ resources:
   # CUSTOMER GATEWAYS
   ######################################################################
   customer_gateways:
-    - name: customergateway
-      bgp_asn: 65000
-      ip_address: "54.176.159.246"
-      type: "ipsec.1"
-      region: "us-west-1"
-      tags:
-        - Key: "Environment"
-          Value: "Development"
-        - Key: "Name"
-          Value: "MyCustomerGateway"
+    - name: customergateway                  // The name of the customer gateway
+      bgp_asn: 65000                         // The Border Gateway Protocol (BGP) Autonomous System Number (ASN)
+      ip_address: "54.176.159.246"           // The static, public IP address of the customer gateway device
+      type: "ipsec.1"                        // The type of VPN connection (e.g., "ipsec.1")
+      region: "us-west-1"                    // The AWS region where the customer gateway is created (e.g., "us-west-1")
+      tags:                                  // Tags associated with the customer gateway
+        - Key: "Environment"                 // Key for the tag (e.g., "Environment")
+          Value: "Development"               // Value for the tag (e.g., "Development")
+        - Key: "Name"                        // Key for the tag (e.g., "Name")
+          Value: "MyCustomerGateway"         // Value for the tag (e.g., "MyCustomerGateway")
 

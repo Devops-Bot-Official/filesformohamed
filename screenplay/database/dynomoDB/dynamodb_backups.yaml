@@ -1,11 +1,11 @@
 resources:
   dynamodb_backups:
-    - name: db backup
-      table_name: MySampleTable214
-      backup_name: MySampleTable214-DailyBackup
-      region: us-west-1
-      tags:
-        - Key: Environment
-          Value: Production
-        - Key: BackupType
-          Value: Daily
+    - name: db backup                     # A descriptive name for the backup configuration
+      table_name: MySampleTable214        # The name of the DynamoDB table to back up
+      backup_name: MySampleTable214-DailyBackup # The name of the backup (e.g., "DailyBackup")
+      region: us-west-1                   # The AWS region where the table is located (e.g., "us-west-1")
+      tags:                               # Tags associated with the backup
+        - Key: Environment                # Key for the tag (e.g., "Environment")
+          Value: Production               # Value for the tag (e.g., "Production")
+        - Key: BackupType                 # Key for the tag (e.g., "BackupType")
+          Value: Daily                    # Value for the tag (e.g., "Daily")

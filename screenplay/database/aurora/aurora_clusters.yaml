@@ -1,19 +1,20 @@
 resources:
   aurora_clusters:
-    - db_cluster_identifier: my-aurora-cluster
-      engine: aurora-mysql
-      engine_version: 8.0.mysql_aurora.3.04.0
-      master_username: admin
-      master_user_password: MyStrongPassword123!
-      database_name: mydatabase
-      vpc_security_group_ids:
-        - sg-0db7a7e95c08483e1
-      db_subnet_group_name: my-rds-subnet-group
-      backup_retention_period: 7
-      storage_encrypted: true
-      region: us-east-1
-      tags:
-        - Key: Environment
-          Value: Production
-        - Key: Project
-          Value: CustomerPortal
+    - db_cluster_identifier: my-aurora-cluster  # The unique identifier for the Aurora cluster
+      engine: aurora-mysql                      # The database engine (e.g., "aurora-mysql" or "aurora-postgresql")
+      engine_version: 8.0.mysql_aurora.3.04.0   # The version of the database engine
+      master_username: admin                    # The master username for the database
+      master_user_password: MyStrongPassword123! # The master user password for the database
+      database_name: mydatabase                 # The name of the initial database to create
+      vpc_security_group_ids:                   # List of VPC security group IDs associated with the cluster
+        - sg-12345                              # Example security group ID
+        - sg-67890                              # Another example security group ID
+      db_subnet_group_name: my-rds-subnet-group # The name of the DB subnet group
+      backup_retention_period: 7                # The number of days to retain backups (e.g., 7)
+      storage_encrypted: true                   # Whether storage encryption is enabled (true or false)
+      region: us-east-1                         # The AWS region where the cluster is created (e.g., "us-east-1")
+      tags:                                     # Tags associated with the Aurora cluster
+        - Key: Environment                      # Key for the tag (e.g., "Environment")
+          Value: Production                     # Value for the tag (e.g., "Production")
+        - Key: Project                          # Key for the tag (e.g., "Project")
+          Value: CustomerPortal                 # Value for the tag (e.g., "CustomerPortal")
